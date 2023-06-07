@@ -89,7 +89,7 @@
             <h4>{{ item['title'] }}</h4>
             <ul>
               {% for link in item['links'] %}
-              <a href="{{ link['href'] }}"{% if ('rel' in link) %} rel="{{ link['rel'] }}"{% endif %}{% if ('target' in link) %} target="{{ link['target'] }}"{% endif %}>{{ link['title'] }}</a>
+              <li><a href="{{ link['href'] }}"{% if ('rel' in link) %} rel="{{ link['rel'] }}"{% endif %}{% if ('target' in link) %} target="{{ link['target'] }}"{% endif %}>{{ link['title'] }}</a></li>
               {% endfor %}
             </ul>
           </div>
