@@ -17,12 +17,13 @@ config = {
     # Add here your new settings
     "defaults": {
         "VERSION": __version__,
-        "WELCOME_MESSAGE": data['items']['config']['meta']['subtitle'],
+        "META": data['items']['config']['meta'],
         "PRIMARY_COLOR": "#0077c8",  # Aquent Gymnasium Blue
         "SECONDARY_COLOR": "#ff5f14",  # Aquent Gymnasium Orange
         # Footer links are dictionaries with a "title" and "url"
         # To remove all links, run:
         # tutor config save --set GYM_FOOTER_NAV_LINKS=[] --set GYM_FOOTER_LEGAL_LINKS=[]
+        "MAIN_NAV": data['items']['config']['navigation']['main'],
         "FOOTER_NAV_LINKS": data['items']['config']['navigation']['footer'],
         "FOOTER_LEGAL_LINKS": [],
     },
