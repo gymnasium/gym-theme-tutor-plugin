@@ -7,4 +7,4 @@ $serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $f-sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 // Initialize the Open edX Bootstrap theme (see https://github.com/openedx/edx-bootstrap)
-@import "~@edx/edx-bootstrap/scss/open-edx/theme.scss";
+@import 'edx-bootstrap/sass/open-edx/theme';
