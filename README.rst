@@ -1,14 +1,13 @@
-Indigo, a cool blue theme for Open edX
-======================================
+Gym Theme
+=========
 
-Indigo is an elegant, customizable theme for `Open edX <https://open.edx.org>`__.
+This theme is a heavily altered fork of the Indigo theme, intended for a specific use.
 
-.. image:: ./screenshots/01-landing-page.png
+.. image:: ./screenshots/gym-theme-initial.png
     :alt: Platform landing page
 
-**Note**: This version of the Indigo theme is compatible with the Olive release of Open edX.
+**Note**: This version of the theme is compatible with the Olive release of Open edX.
 
-You can view the theme in action at https://demo.openedx.overhang.io.
 
 Installation
 ------------
@@ -87,11 +86,12 @@ For instance, edit the "donate.html" file in this directory. We can derive the c
 
 This new template will then be used to render the /donate url.
 
-Troubleshooting
----------------
+Tutor Notes
+-----------
 
 This Tutor plugin is maintained by Régis Behmo from `Overhang.IO <https://overhang.io>`__. Community support is available from the official `Open edX forum <https://discuss.openedx.org>`__. Do you need help with this plugin? See the `troubleshooting <https://docs.tutor.overhang.io/troubleshooting.html>`__ section from the Tutor documentation.
 
+You can view the Indigo theme in action at https://demo.openedx.overhang.io.
 
 License
 -------
