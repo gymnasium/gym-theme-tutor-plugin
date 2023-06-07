@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img">
+  <title>Gymnasium</title>
+  <desc>Aquent Gymnasium “A” logo in orange.</desc>
+  <g fill="none" fill-rule="evenodd">
+    <path fill="#222" d="M0 0h256v256H0z"/>
+    <g fill="#ff5f14" fill-rule="nonzero">
+      <path d="m149.583 190.016-37.741 4.455-4.482-37.514 37.742-4.455z"/>
+      <path d="M186.853 228H222L141.799 28H115.38L34 228h35.147l58.735-148.417z"/>
+    </g>
+  </g>
+</svg>

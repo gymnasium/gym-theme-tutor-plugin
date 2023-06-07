@@ -13,18 +13,20 @@
 % if uses_bootstrap:
   <div class="container-fluid wrapper-footer">
     <footer>
-      <div class="row">
-        <div class="col-md-9">
+      <div class="container">
           {% if GYM_FOOTER_NAV_LINKS %}
-          <nav class="navbar site-nav navbar-expand-sm" aria-label="${_('About')}">
-            <ul class="navbar-nav">
-              {% for link in GYM_FOOTER_NAV_LINKS %}
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ link['url'] }}">{{ link['title'] }}</a>
+            {% for item in GYM_FOOTER_NAV_LINKS %}
+            <div id="" class="footer-section">
+              <h4>{{ item['title'] }}</h4>
+              <ul>
+                {% for link in item['links'] %}
+                <li>
+                  <a href="{{ link['href'] }}"{% if ('rel' in link) %} rel="{{ link['rel'] }}"{% endif %}{% if ('target' in link) %} target="{{ link['target'] }}"{% endif %}>{{ link['title'] }}</a>
                 </li>
-              {% endfor %}
-            </ul>
-          </nav>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endfor %}
           {% endif %}
 
           ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
@@ -72,7 +74,7 @@
   </div>
 % else:
   <div class="wrapper wrapper-footer">
-    <footer id="footer-openedx" class="grid-container"
+    <footer
       ## When rendering the footer through the branding API,
       ## the direction may not be set on the parent element,
       ## so we set it here.
@@ -82,16 +84,18 @@
     >
       <div class="colophon">
         {% if GYM_FOOTER_NAV_LINKS %}
-        <nav class="nav-colophon" aria-label="${_('About')}">
-          <ol>
-              {% for link in GYM_FOOTER_NAV_LINKS %}
-              <li>
-                <a href="{{ link['url'] }}">{{ link['title'] }}</a>
-              </li>
+          {% for item in GYM_FOOTER_NAV_LINKS %}
+          <div id="" class="footer-section">
+            <h4>{{ item['title'] }}</h4>
+            <ul>
+              {% for link in item['links'] %}
+              <a href="{{ link['href'] }}"{% if ('rel' in link) %} rel="{{ link['rel'] }}"{% endif %}{% if ('target' in link) %} target="{{ link['target'] }}"{% endif %}>{{ link['title'] }}</a>
               {% endfor %}
-          </ol>
-        </nav>
+            </ul>
+          </div>
+          {% endfor %}
         {% endif %}
+
         % if context.get('include_language_selector', footer_language_selector_is_enabled()):
             <%include file="${static.get_template_path('widgets/footer-language-selector.html')}"/>
         % endif
