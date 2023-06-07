@@ -13,7 +13,7 @@ def load_readme():
 def load_about():
     about = {}
     with io.open(
-        os.path.join(HERE, "tutorindigo", "__about__.py"),
+        os.path.join(HERE, "gymtheme", "__about__.py"),
         "rt",
         encoding="utf-8",
     ) as f:
@@ -25,13 +25,13 @@ ABOUT = load_about()
 
 
 setup(
-    name="tutor-indigo",
+    name="gym-theme-tutor-plugin",
     version=ABOUT["__version__"],
-    url="https://github.com/overhangio/tutor-indigo",
+    url="https://github.com/gymnasium/gym-theme-tutor-plugin",
     project_urls={
-        "Documentation": "https://docs.tutor.overhang.io/",
-        "Code": "https://github.com/overhangio/tutor-indigo",
-        "Issue tracker": "https://github.com/overhangio/tutor-indigo/issues",
+        "Documentation": "https://github.com/gymnasium/gym-theme-tutor-plugin",
+        "Code": "https://github.com/gymnasium/gym-theme-tutor-plugin",
+        "Issue tracker": "https://github.com/gymnasium/gym-theme-tutor-plugin/issues",
         "Community": "https://discuss.openedx.org",
     },
     license="AGPLv3",
@@ -39,13 +39,13 @@ setup(
     author_email="contact@overhang.io",
     maintainer="Overhang.IO",
     maintainer_email="regis@overhang.io",
-    description="Indigo theme plugin for Tutor",
+    description="Gym theme plugin for Tutor",
     long_description=load_readme(),
     packages=find_packages(exclude=["tests*"]),
     include_package_data=True,
     python_requires=">=3.7",
     install_requires=["tutor>=15.0.0,<16.0.0"],
-    entry_points={"tutor.plugin.v1": ["indigo = tutorindigo.plugin"]},
+    entry_points={"tutor.plugin.v1": ["gym = gymtheme.plugin"]},
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
