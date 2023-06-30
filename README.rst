@@ -6,7 +6,7 @@ This theme is a heavily altered fork of the Indigo theme, intended for a specifi
 .. image:: ./screenshots/gym-theme-initial.png
     :alt: Platform landing page
 
-**Note**: This version of the theme is compatible with the Olive release of Open edX.
+**Note**: This version of the theme is compatible with the Palm release of Open edX.
 
 
 Installation
@@ -46,6 +46,11 @@ The ``GYM_*`` settings listed above may be modified by running ``tutor config sa
 
     tutor config save --set "GYM_FOOTER_NAV_LINKS=[]" --set "GYM_FOOTER_LEGAL_LINKS=[]"
 
+Or, to set the primary color to forest green, run::
+
+    # Note: The nested quotes are needed in order to handle the hash (#) correctly.
+    tutor config save --set 'INDIGO_PRIMARY_COLOR="#225522"'
+
 Customization
 -------------
 
@@ -61,11 +66,11 @@ Overriding the default "about", "contact", etc. static pages
 
 By default, the ``/about`` and ``/contact`` pages contain a simple line of text: "This page left intentionally blank. Feel free to add your own content". This is of course unusable in production. In the following, we detail how to override just any of the static templates used in Open edX.
 
-The static templates used by Open edX to render those pages are all stored in the `edx-platform/lms/templates/static_templates <https://github.com/edx/edx-platform/tree/open-release/olive.master/lms/templates/static_templates>`__ folder. To override those templates, you should add your own in the following folder::
+The static templates used by Open edX to render those pages are all stored in the `edx-platform/lms/templates/static_templates <https://github.com/edx/edx-platform/tree/open-release/palm.master/lms/templates/static_templates>`__ folder. To override those templates, you should add your own in the following folder::
 
     ls gymtheme/templates/gym/lms/templates/static_templates"
 
-For instance, edit the "donate.html" file in this directory. We can derive the content of this file from the contents of the `donate.html <https://github.com/edx/edx-platform/blob/open-release/olive.master/lms/templates/static_templates/donate.html>`__ static template in edx-platform::
+For instance, edit the "donate.html" file in this directory. We can derive the content of this file from the contents of the `donate.html <https://github.com/edx/edx-platform/blob/open-release/palm.master/lms/templates/static_templates/donate.html>`__ static template in edx-platform::
 
     <%page expression_filter="h"/>
     <%! from django.utils.translation import ugettext as _ %>
