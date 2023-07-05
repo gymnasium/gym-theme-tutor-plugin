@@ -17,19 +17,19 @@ The Gym theme is a modified version of Indigo, which in turn was specially devel
 Since the Gym theme is not listed in the Tutor plugins index, you'll have to clone it manually yourself::
 Check to see if the folder exists:
     
-    cd "$(tutor plugins printroot)"
+| cd "$(tutor plugins printroot)"
 
 If it doesn't exit, create it:
 
-    mkdir "$(tutor plugins printroot)"
+| mkdir "$(tutor plugins printroot)"
 
 Continue:
 
-    cd "$(tutor plugins printroot)"
-    git clone https://github.com/gymnasium/gym-theme-tutor-plugin
-    pip install -e gym-theme-tutor-plugin
-    tutor plugins enable gym
-    tutor config save
+| cd "$(tutor plugins printroot)"
+| git clone https://github.com/gymnasium/gym-theme-tutor-plugin
+| pip install -e gym-theme-tutor-plugin
+| tutor plugins enable gym
+| tutor config save
 
 Rebuild the Openedx docker image::
 
