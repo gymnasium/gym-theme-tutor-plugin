@@ -18,9 +18,11 @@ Since the Gym theme is not listed in the Tutor plugins index, you'll have to clo
 Check to see if the folder exists:
     
     cd "$(tutor plugins printroot)"
+
 If it doesn't exit, create it:
 
     mkdir "$(tutor plugins printroot)"
+
 Continue:
 
     cd "$(tutor plugins printroot)"
