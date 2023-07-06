@@ -15,21 +15,21 @@ Installation
 The Gym theme is a modified version of Indigo, which in turn was specially developed to be used with `Tutor <https://docs.tutor.overhang.io>`__ (at least v14.0.0). If you have not installed Open edX with Tutor, then installation instructions will vary.
 
 Since the Gym theme is not listed in the Tutor plugins index, you'll have to clone it manually yourself::
-Check to see if the folder exists:
+Check to see if the folder exists::
     
-| cd "$(tutor plugins printroot)"
+    cd "$(tutor plugins printroot)"
 
-If it doesn't exit, create it:
+If it doesn't exit, create it::
 
-| mkdir "$(tutor plugins printroot)"
+    mkdir "$(tutor plugins printroot)"
 
-Continue:
+Continue::
 
-| cd "$(tutor plugins printroot)"
-| git clone https://github.com/gymnasium/gym-theme-tutor-plugin
-| pip install -e gym-theme-tutor-plugin
-| tutor plugins enable gym
-| tutor config save
+    cd "$(tutor plugins printroot)"
+    git clone https://github.com/gymnasium/gym-theme-tutor-plugin
+    pip install -e gym-theme-tutor-plugin
+    tutor plugins enable gym
+    tutor config save
 
 Rebuild the Openedx docker image::
 
@@ -49,7 +49,7 @@ Configuration
 - ``GYM_WELCOME_MESSAGE`` (default: "The place for all your online learning")
 - ``GYM_PRIMARY_COLOR`` (default: "#3b85ff")
 - ``GYM_FOOTER_NAV_LINKS`` (default: ``[{"title": "About", "url": "/about"}, {"title": "Contact", "url": "/contact"}]``)
-- ``GYM_FOOTER_LEGAL_LINKS`` (default: ``[{"title": "Terms of service", "url": "/tos"}, {"title": "Indigo theme for Open edX", "url": "https://github.com/gymnasium/gym-theme-tutor-plugin"}]``)
+- ``GYM_FOOTER_LEGAL_LINKS`` (default: ``[{"title": "Terms of service", "url": "/tos"}, {"title": "Gymnasium theme for Open edX", "url": "https://github.com/gymnasium/gym-theme-tutor-plugin"}]``)
 
 The ``GYM_*`` settings listed above may be modified by running ``tutor config save --set GYM_...=...``. For instance, to remove all links from the footer, run::
 
@@ -58,7 +58,7 @@ The ``GYM_*`` settings listed above may be modified by running ``tutor config sa
 Or, to set the primary color to forest green, run::
 
     # Note: The nested quotes are needed in order to handle the hash (#) correctly.
-    tutor config save --set 'INDIGO_PRIMARY_COLOR="#225522"'
+    tutor config save --set 'GYM_PRIMARY_COLOR="#225522"'
 
 Customization
 -------------
