@@ -40,16 +40,18 @@ h1, h2, h3, h1 span, h2 span, h3 span, .nav-item {
 ////////////////// Fonts
 @import "fonts";
 
-/////////////////// Register/Sign in header
-header.global-header {
-  @include media-breakpoint-up(lg) {
-    position: fixed;
-    top: 0;
-    z-index: 200; // necessary to keep the header on top of other elements
-    overflow: visible;  // fix for Safari
+////////////////// Temporary display hacks for testing
+header.gym-header {
+  position: relative;
+  border: 0;
+
+  .main {
+    li {
+      display: inline-block;
+      margin-right: 1rem;
+      padding: 6px 0;
+    }
   }
-  //background-color: #4c61bf;
-  box-shadow: none;
 }
 
 header.global-header .nav-links .secondary .user-image-frame {

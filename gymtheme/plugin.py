@@ -17,7 +17,11 @@ config = {
     # Add here your new settings
     "defaults": {
         "VERSION": __version__,
+        "CONFIG": data['items']['config'],
         "META": data['items']['config']['meta'],
+        "ASTRO_URL": data['items']['config']['astro_url'],
+        "ELEVENTY_URL": data['items']['config']['eleventy_url'],
+        "CMS_URL": data['items']['config']['cms_url'],
         "PRIMARY_COLOR": "#0077c8",  # Aquent Gymnasium Blue
         "SECONDARY_COLOR": "#ff5f14",  # Aquent Gymnasium Orange
         # Footer links are dictionaries with a "title" and "url"
@@ -26,6 +30,8 @@ config = {
         "MAIN_NAV": data['items']['config']['navigation']['main'],
         "FOOTER_NAV_LINKS": data['items']['config']['navigation']['footer'],
         "FOOTER_LEGAL_LINKS": [],
+        "LOGO_SRC": data['items']['config']['logos']['main']['black']['src'],
+        "LOGO_SRCSET": data['items']['config']['logos']['main']['black']['srcset'],
     },
     "unique": {},
     "overrides": {},
