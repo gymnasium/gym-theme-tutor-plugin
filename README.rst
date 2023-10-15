@@ -28,7 +28,7 @@ Continue::
     cd "$(tutor plugins printroot)"
     git clone https://github.com/gymnasium/gym-theme-tutor-plugin
     pip install -e gym-theme-tutor-plugin
-    tutor plugins enable gym
+    tutor plugins enable gym-theme
     tutor config save
 
 Rebuild the Openedx docker image::
@@ -41,7 +41,7 @@ Restart your platform::
 
 You will then have to enable the "gym" theme, as per the `Tutor documentation <https://docs.tutor.overhang.io/local.html#setting-a-new-theme>`__::
 
-    tutor local do settheme gym
+    tutor local do settheme gym-theme
 
 Configuration
 -------------
