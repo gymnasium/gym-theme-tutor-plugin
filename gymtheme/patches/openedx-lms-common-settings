@@ -1,0 +1,4 @@
+MKTG_URL_LINK_MAP = {
+  "status.json": "status.json",
+  "iframe": "iframe.html",
+}
