@@ -1,1 +1,2 @@
+recursive-include gymtheme/patches *
 recursive-include gymtheme/templates *
