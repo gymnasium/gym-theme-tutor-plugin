@@ -61,3 +61,19 @@ hooks.Filters.CONFIG_UNIQUE.add_items(
     [(f"GYM_{key}", value) for key, value in config["unique"].items()]
 )
 hooks.Filters.CONFIG_OVERRIDES.add_items(list(config["overrides"].items()))
+
+########################################
+# PATCH LOADING
+########################################
+
+# For each file in gymtheme/patches,
+# apply a patch based on the file's name and contents.
+for path in glob(
+    os.path.join(
+        pkg_resources.resource_filename("gymtheme", "patches"),
+        "*",
+    )
+):
+    with open(path, encoding="utf-8") as patch_file:
+        hooks.Filters.ENV_PATCHES.add_item((os.path.basename(path), patch_file.read()))
+
