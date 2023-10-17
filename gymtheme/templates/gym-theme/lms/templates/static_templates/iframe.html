@@ -1,0 +1,17 @@
+<%namespace name='static' file='static_content.html'/>
+<%page expression_filter="h"/>
+<%! from django.utils.translation import ugettext as _ %>
+<%
+  if user.is_authenticated:
+    loggedin="true"
+  else:
+    loggedin="false"
+  endif
+%>
+<html data-auth="${loggedin}">
+  <head>
+    <title>Authentication Status</title>
+    <script async src="{{ GYM_CONFIG['root_url'] }}/js/iframe.js"></script>
+  </head>
+  <body></body>
+</html>
