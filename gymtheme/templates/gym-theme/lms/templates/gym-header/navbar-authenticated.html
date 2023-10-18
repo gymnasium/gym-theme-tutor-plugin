@@ -31,7 +31,7 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
     {%- if GYM_MAIN_NAV -%}
     <ul>
       {%- for link in GYM_MAIN_NAV -%}
-      <li><a href="{{ GYM_CONFIG['eleventy_url'] }}{{ link['href'] }}">{{ link['title'] }}</a></li>
+      <li><a href="{{ GYM_CONFIG['root_url'] }}{{ link['href'] }}">{{ link['title'] }}</a></li>
       {%- endfor -%}
     </ul>
     {%- endif -%}

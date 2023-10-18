@@ -1,5 +1,8 @@
 import pkg_resources
 import requests
+import os
+import os.path
+from glob import glob
 
 from tutor import hooks
 
