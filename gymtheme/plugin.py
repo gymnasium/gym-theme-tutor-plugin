@@ -8,7 +8,8 @@ from tutor import hooks
 
 from .__about__ import __version__
 
-response = requests.get('https://data.gym.soy/feeds/complete.json')
+response = requests.get('http://gym.soy/feeds/config.json')
+# response = requests.get('http://localhost:4040/feeds/config.json')
 if response.status_code == 200:
     data = response.json()
 else:
@@ -20,21 +21,22 @@ config = {
     # Add here your new settings
     "defaults": {
         "VERSION": __version__,
-        "CONFIG": data['items']['config'],
-        "META": data['items']['config']['meta'],
-        "ASTRO_URL": data['items']['config']['astro_url'],
-        "ELEVENTY_URL": data['items']['config']['eleventy_url'],
-        "CMS_URL": data['items']['config']['cms_url'],
-        "PRIMARY_COLOR": "#0077c8",  # Aquent Gymnasium Blue
-        "SECONDARY_COLOR": "#ff5f14",  # Aquent Gymnasium Orange
+        "CONFIG": data,
+        "META": data['meta'],
+        "CMS_URL": data['cms_url'],
+        "PRIMARY_COLOR": data['colors']['blue'],  # Aquent Gymnasium Blue
+        "SECONDARY_COLOR": data['colors']['orange'],  # Aquent Gymnasium Orange
         # Footer links are dictionaries with a "title" and "url"
         # To remove all links, run:
         # tutor config save --set GYM_FOOTER_NAV_LINKS=[] --set GYM_FOOTER_LEGAL_LINKS=[]
-        "MAIN_NAV": data['items']['config']['navigation']['main'],
-        "FOOTER_NAV_LINKS": data['items']['config']['navigation']['footer'],
+        "MAIN_NAV": data['navigation']['main'],
+        "AUTH_NAV": data['navigation']['auth'],
+        "FOOTER_NAV_LINKS": data['navigation']['footer'],
         "FOOTER_LEGAL_LINKS": [],
-        "LOGO_SRC": data['items']['config']['logos']['main']['black']['src'],
-        "LOGO_SRCSET": data['items']['config']['logos']['main']['black']['srcset'],
+        "LOGO_WHITE_SRC": data['logos']['main']['white']['src'],
+        "LOGO_WHITE_SRCSET": data['logos']['main']['white']['srcset'],
+        "LOGO_BLACK_SRC": data['logos']['main']['black']['src'],
+        "LOGO_BLACK_SRCSET": data['logos']['main']['black']['srcset'],
     },
     "unique": {},
     "overrides": {},
@@ -53,7 +55,7 @@ hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
 
 # Force the rendering of scss files, even though they are included in a "partials" directory
 hooks.Filters.ENV_PATTERNS_INCLUDE.add_item(
-    r"gym/lms/static/sass/partials/lms/theme/"
+    r"gym-theme/lms/static/sass/partials/lms/theme/"
 )
 
 # Load all configuration entries
