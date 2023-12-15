@@ -42,38 +42,56 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
   </script>
 % endif
 
-<header class="gym-header global-header ${'slim' if course else ''}">
-    % if settings.FEATURES.get('ENABLE_COOKIE_POLICY_BANNER', use_cookie_banner):
-        ${static.renderReact(
-            component="CookiePolicyBanner",
-            id="frontend-component-cookie-policy-banner",
-            props={}
-        )}
+<header class="site-header ${'slim' if course else ''}">
+  <div class="container">
+    <nav class="main" role="navigation" aria-label="Main">
+      <%include file="navbar-logo-header.html" args="online_help_token=online_help_token"/>
+      
+      % if user.is_authenticated:
+          <%include file="navbar-authenticated.html" args="online_help_token=online_help_token"/>
+      % else:
+          <%include file="navbar-not-authenticated.html" args="online_help_token=online_help_token"/>
+      % endif
+    </nav>
+    <!-- Secondary Nav Stuff -->
+    % if user.is_authenticated:
+      <%include file="secondary-nav.html" args="online_help_token=online_help_token"/>
     % endif
-    <div class="main-header">
-        <%include file="navbar-logo-header.html" args="online_help_token=online_help_token"/>
-        <div class="hamburger-menu" role="button" aria-label=${_("Options Menu")} aria-expanded="false" aria-controls="mobile-menu" tabindex="0">
-            <span class="line"></span>
-            <span class="line"></span>
-            <span class="line"></span>
-            <span class="line"></span>
-        </div>
-        % if user.is_authenticated:
-            <%include file="navbar-authenticated.html" args="online_help_token=online_help_token"/>
-        % else:
-            <%include file="navbar-not-authenticated.html" args="online_help_token=online_help_token"/>
-        % endif
+
+  </div>
+
+  % if course and not disable_courseware_header:
+    <div class="course-header">
+      <span class="provider">${course.display_org_with_default}:</span>
+      <span class="course-number">${course.display_number_with_default}</span>
+      <span class="course-name">${course.display_name_with_default}</span>
     </div>
-    <div class="mobile-menu hidden" aria-label=${_("More Options")} role="menu" id="mobile-menu"></div>
-</header>
+  % endif
+
+  % if enable_enterprise_sidebar:
+    <div class="enterprise-tagline">
+      <% tagline = configuration_helpers.get_value('ENTERPRISE_TAGLINE', settings.ENTERPRISE_TAGLINE) %>
+      % if tagline:
+        ${tagline}
+      % endif
+    </div>
+  % endif
+
+  % if settings.FEATURES.get('ENABLE_COOKIE_POLICY_BANNER', use_cookie_banner):
+  ${static.renderReact(
+    component="CookiePolicyBanner",
+    id="frontend-component-cookie-policy-banner",
+    props={}
+  )}
+% endif
 
 % if course:
 <!--[if lte IE 9]>
 <div class="ie-banner" aria-hidden="true">${Text(_('{begin_strong}Warning:{end_strong} Your browser is not fully supported. We strongly recommend using {chrome_link} or {ff_link}.')).format(
-    begin_strong=HTML('<strong>'),
-    end_strong=HTML('</strong>'),
-    chrome_link=HTML('<a href="https://www.google.com/chrome" rel="noopener" target="_blank">Chrome</a>'),
-    ff_link=HTML('<a href="http://www.mozilla.org/firefox" rel="noopener" target="_blank">Firefox</a>'),
+  begin_strong=HTML('<strong>'),
+  end_strong=HTML('</strong>'),
+  chrome_link=HTML('<a href="https://www.google.com/chrome" rel="noopener" target="_blank">Chrome</a>'),
+  ff_link=HTML('<a href="http://www.mozilla.org/firefox" rel="noopener" target="_blank">Firefox</a>'),
 )}</div>
 <![endif]-->
 % endif
@@ -83,26 +101,28 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
 % endif
 
 % if header_language_selector_is_enabled():
-    <% languages = released_languages() %>
-    % if len(languages) > 1:
-        <form action="/i18n/setlang/" method="post" class="settings-language-form" id="language-settings-form">
-            <input type="hidden" id="csrf_token" name="csrfmiddlewaretoken" value="${csrf_token}">
-            % if user.is_authenticated:
-                <input title="preference api" type="hidden" class="url-endpoint" value="${reverse('preferences_api', kwargs={'username': user.username})}" data-user-is-authenticated="true">
-            % else:
-                <input title="session update url" type="hidden" class="url-endpoint" value="${reverse('session_language')}" data-user-is-authenticated="false">
-            % endif
-            <label><span class="sr">${_("Choose Language")}</span>
-            <select class="input select language-selector" id="settings-language-value" name="language">
-                % for language in languages:
-                    % if language[0] == LANGUAGE_CODE:
-                        <option value="${language[0]}" selected="selected">${language[1]}</option>
-                    % else:
-                        <option value="${language[0]}" >${language[1]}</option>
-                    % endif
-                % endfor
-            </select>
-            </label>
-        </form>
-    % endif
+  <% languages = released_languages() %>
+  % if len(languages) > 1:
+      <form action="/i18n/setlang/" method="post" class="settings-language-form" id="language-settings-form">
+        <input type="hidden" id="csrf_token" name="csrfmiddlewaretoken" value="${csrf_token}">
+        % if user.is_authenticated:
+          <input title="preference api" type="hidden" class="url-endpoint" value="${reverse('preferences_api', kwargs={'username': user.username})}" data-user-is-authenticated="true">
+        % else:
+          <input title="session update url" type="hidden" class="url-endpoint" value="${reverse('session_language')}" data-user-is-authenticated="false">
+        % endif
+        <label>
+          <span class="sr">${_("Choose Language")}</span>
+          <select class="input select language-selector" id="settings-language-value" name="language">
+            % for language in languages:
+              % if language[0] == LANGUAGE_CODE:
+                <option value="${language[0]}" selected="selected">${language[1]}</option>
+              % else:
+                <option value="${language[0]}" >${language[1]}</option>
+              % endif
+            % endfor
+          </select>
+        </label>
+      </form>
+  % endif
 % endif
+</header>
