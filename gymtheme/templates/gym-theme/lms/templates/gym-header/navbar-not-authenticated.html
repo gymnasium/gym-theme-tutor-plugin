@@ -22,34 +22,27 @@ from openedx.core.djangoapps.user_authn.toggles import should_redirect_to_authn_
   allow_public_account_creation = static.get_value('ALLOW_PUBLIC_ACCOUNT_CREATION', settings.FEATURES.get('ALLOW_PUBLIC_ACCOUNT_CREATION'))
   should_redirect_to_authn_mfe = should_redirect_to_authn_microfrontend()
 %>
-<nav class="nav-links">
-  <div class="main">
-    {%- if GYM_MAIN_NAV -%}
-    <ul>
-      {%- for link in GYM_MAIN_NAV -%}
-      <li><a href="{{ link['href'] }}">{{ link['title'] }}</a></li>
-      {%- endfor -%}
-    </ul>
-    {%- endif -%}
-  </div>
-  <div class="secondary">
-    <ul>
-    % if allows_login:
-      % if allow_public_account_creation and not disable_register_button:
-        % if should_redirect_to_authn_mfe:
-          <li><a class="register-btn btn" href="${settings.AUTHN_MICROFRONTEND_URL}/register${login_query()}">${_("Sign Up")}</a></li>
-        % else:
-          <li><a class="register-btn btn" href="/register${login_query()}">${_("Sign Up")}</a></li>
-        % endif
-      % endif
-      % if should_redirect_to_authn_mfe:
-        <li><a class="sign-in-btn btn" href="${settings.AUTHN_MICROFRONTEND_URL}/login${login_query()}">${_("Sign In")}</a></li>
-      % else:
-        <li><a class="sign-in-btn btn" href="/login${login_query()}">${_("Sign In")}</a></li>
-      % endif
+{%- if GYM_MAIN_NAV -%}
+<ul>
+  {%- for link in GYM_MAIN_NAV -%}
+  <li><a href="{{ link['href'] }}">{{ link['title'] }}</a></li>
+  {%- endfor -%}
+</ul>
+{%- endif -%}
+<ul class="auth">
+% if allows_login:
+  % if should_redirect_to_authn_mfe:
+    <li><a class="sign-in-btn btn" href="${settings.AUTHN_MICROFRONTEND_URL}/login${login_query()}">${_("Sign In")}</a></li>
+  % else:
+    <li><a class="sign-in-btn btn" href="/login${login_query()}">${_("Sign In")}</a></li>
+  % endif
+  % if allow_public_account_creation and not disable_register_button:
+    % if should_redirect_to_authn_mfe:
+      <li><a class="button" href="${settings.AUTHN_MICROFRONTEND_URL}/register${login_query()}">${_("Sign Up")}</a></li>
+    % else:
+      <li><a class="button" href="/register${login_query()}">${_("Sign Up")}</a></li>
     % endif
-    </ul>
-  </div>
-</nav>
-
+  % endif
+% endif
+</ul>
 

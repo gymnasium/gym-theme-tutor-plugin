@@ -46,12 +46,13 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
   <div class="container">
     <nav class="main" role="navigation" aria-label="Main">
       <%include file="navbar-logo-header.html" args="online_help_token=online_help_token"/>
-      
+      <div class="wrapper">
       % if user.is_authenticated:
-          <%include file="navbar-authenticated.html" args="online_help_token=online_help_token"/>
+        <%include file="navbar-authenticated.html" args="online_help_token=online_help_token"/>
       % else:
-          <%include file="navbar-not-authenticated.html" args="online_help_token=online_help_token"/>
+        <%include file="navbar-not-authenticated.html" args="online_help_token=online_help_token"/>
       % endif
+      </div>
     </nav>
     <!-- Secondary Nav Stuff -->
     % if user.is_authenticated:

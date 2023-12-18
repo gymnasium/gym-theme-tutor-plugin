@@ -15,8 +15,8 @@ from lms.djangoapps.branding import api as branding_api
 
 <a class="navbar-brand" href="${branding_api.get_home_url()}" itemprop="url">
   {%- if GYM_LOGO_WHITE_SRC -%}
-    <img class="logo-image" src="{{ GYM_CONFIG['cms_url'] }}{{ GYM_LOGO_WHITE_SRC }}" srcset="{{ GYM_CONFIG['cms_url'] }}{{ GYM_LOGO_WHITE_SRCSET}}" alt="{{ GYM_META['title'] }}" itemprop="logo" />
+    <img class="logo-image" src="{{ GYM_CONFIG['cms_url'] }}{{ GYM_LOGO_WHITE_SRC }}" srcset="{{ GYM_CONFIG['cms_url'] }}{{ GYM_LOGO_WHITE_SRCSET}}" alt="{{ GYM_META['title'] }} Home" itemprop="logo" />
   {%- else -%}
-    <img class="logo-image" src="${static.url("images/logo.png")}" alt="${_("{platform_name} Home Page").format(platform_name=static.get_platform_name())}" itemprop="logo" />
+    <img class="logo-image" src="${static.url("images/logo-white.png")}" alt="${_("{platform_name} Home").format(platform_name=static.get_platform_name())}" itemprop="logo" />
   {%- endif -%}
 </a>
