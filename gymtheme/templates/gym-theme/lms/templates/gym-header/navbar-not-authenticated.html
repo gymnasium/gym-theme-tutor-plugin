@@ -23,13 +23,13 @@ from openedx.core.djangoapps.user_authn.toggles import should_redirect_to_authn_
   should_redirect_to_authn_mfe = should_redirect_to_authn_microfrontend()
 %>
 {%- if GYM_MAIN_NAV -%}
-<ul>
+<ul role="list">
   {%- for link in GYM_MAIN_NAV -%}
   <li><a href="{{ link['href'] }}">{{ link['title'] }}</a></li>
   {%- endfor -%}
 </ul>
 {%- endif -%}
-<ul class="auth">
+<ul class="auth" role="list">
 % if allows_login:
   % if should_redirect_to_authn_mfe:
     <li><a class="sign-in-btn btn" href="${settings.AUTHN_MICROFRONTEND_URL}/login${login_query()}">${_("Sign In")}</a></li>
