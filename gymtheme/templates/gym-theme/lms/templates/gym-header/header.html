@@ -56,10 +56,11 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
     </nav>
   </div>
   <!-- Secondary Nav Stuff -->
+  % if course:
+    <%include file="secondary-nav.html" args="secondary_nav='courses'"/>
+  % endif
   % if user.is_authenticated:
-    <div class="container">
-    <%include file="secondary-nav.html" args="online_help_token=online_help_token"/>
-    </div>
+
   % endif
   % if course and not disable_courseware_header:
     <div class="course-header">
