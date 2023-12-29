@@ -43,7 +43,7 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
 % endif
 
 <header class="site-header ${'slim' if course else ''}">
-  <div class="container bg-dark-100">
+  <div class="container">
     <nav class="main" role="navigation" aria-label="Main">
       <%include file="navbar-logo-header.html" args="online_help_token=online_help_token"/>
       <div class="wrapper">
@@ -57,7 +57,7 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
   </div>
   <!-- Secondary Nav Stuff -->
   % if user.is_authenticated:
-    <div class="container bg-neutral-900">
+    <div class="container">
     <%include file="secondary-nav.html" args="online_help_token=online_help_token"/>
     </div>
   % endif
