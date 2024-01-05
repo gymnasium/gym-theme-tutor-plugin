@@ -9,7 +9,7 @@ from tutor import hooks
 from .__about__ import __version__
 
 response = requests.get('http://gym.soy/feeds/config.json')
-# response = requests.get('http://localhost:4040/feeds/config.json')
+# response = requests.get('http://local.overhang.io:4040/feeds/config.json')
 if response.status_code == 200:
     data = response.json()
 else:
@@ -23,12 +23,11 @@ config = {
         "VERSION": __version__,
         "CONFIG": data,
         "META": data['meta'],
-        "CMS_URL": data['cms_url'],
-        "PRIMARY_COLOR": data['colors']['blue'],  # Aquent Gymnasium Blue
-        "SECONDARY_COLOR": data['colors']['orange'],  # Aquent Gymnasium Orange
-        # Footer links are dictionaries with a "title" and "url"
-        # To remove all links, run:
-        # tutor config save --set GYM_FOOTER_NAV_LINKS=[] --set GYM_FOOTER_LEGAL_LINKS=[]
+        "ROOT_URL": data['urls']['root'],
+        "CMS_URL": data['urls']['cms'],
+        "MFE_URL": data['urls']['mfe'],
+        "PRIMARY_COLOR": data['colors']['primary'],  # Aquent Gymnasium Blue
+        "SECONDARY_COLOR": data['colors']['secondary'],  # Aquent Gymnasium Orange
         "MAIN_NAV": data['navigation']['main'],
         "AUTH_NAV": data['navigation']['auth'],
         "FOOTER_NAV_LINKS": data['navigation']['footer'],
