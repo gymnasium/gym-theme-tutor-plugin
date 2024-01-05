@@ -76,3 +76,20 @@ PIPELINE['STYLESHEETS'] = {
     'output_filename': 'css/lms-mobile-rtl.css',
   },
 }
+
+FEATURES['ENABLE_MKTG_SITE'] = True
+MARKETING_SITE_BASE_URL="{{ GYM_ROOT_URL }}"
+MARKETING_SITE_ROOT="{{ GYM_ROOT_URL }}"
+
+MKTG_URLS = {
+  'ABOUT': '/about',
+  'CONTACT': '/contact',
+  'FAQ': '/faq',
+  'COURSES': '/courses',
+  'JOBS': '/jobs',
+  'ROOT': '{{ GYM_ROOT_URL }}',
+  'TOS': '/privacy-policy',
+  'HONOR': '/privacy-policy',
+  'PRIVACY': '/privacy-policy',
+  'WHAT_IS_VERIFIED_CERT': '/faq#how-do-i-get-my-certificate',
+}
