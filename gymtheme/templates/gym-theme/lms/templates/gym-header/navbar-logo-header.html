@@ -29,7 +29,7 @@ enterprise_customer_link = get_enterprise_learner_portal(request)
   <a href="${branding_api.get_home_url()}">
     <%block name="navigation_logo">
       {%- if GYM_LOGO_WHITE_SRC -%}
-        <img class="logo" src="{{ GYM_CONFIG['cms_url'] }}{{ GYM_LOGO_WHITE_SRC }}" srcset="{{ GYM_CONFIG['cms_url'] }}{{ GYM_LOGO_WHITE_SRCSET}}" alt="{{ GYM_META['title'] }} Home" itemprop="logo" />
+        <img class="logo" src="{{ GYM_CMS_URL }}{{ GYM_LOGO_WHITE_SRC }}" srcset="{{ GYM_CMS_URL }}{{ GYM_LOGO_WHITE_SRCSET}}" alt="{{ GYM_META['title'] }} Home" itemprop="logo" />
       {%- else -%}
         <img class="logo" src="${branding_api.get_logo_url(is_secure)}" alt="${_("{platform_name} Home").format(platform_name=static.get_platform_name())}"/>
       {%- endif -%}
