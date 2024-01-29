@@ -11,8 +11,8 @@ from tutor import hooks
 
 from .__about__ import __version__
 
-# response = requests.get('http://gym.soy/feeds/config.json')
-response = requests.get('http://local.overhang.io/feeds/config.json')
+response = requests.get('http://gym.soy/feeds/config.json')
+# response = requests.get('http://local.overhang.io/feeds/config.json')
 if response.status_code == 200:
     data = response.json()
 else:
