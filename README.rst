@@ -26,8 +26,8 @@ If it doesn't exit, create it::
 Continue::
 
     cd "$(tutor plugins printroot)"
-    git clone https://github.com/gymnasium/gym-theme-tutor-plugin
-    pip install -e gym-theme-tutor-plugin
+    git clone https://github.com/gymnasium/gym-theme
+    pip install -e gym-theme
     tutor plugins enable gym-theme
     tutor config save
 
@@ -49,7 +49,7 @@ Configuration
 - ``GYM_WELCOME_MESSAGE`` (default: "The place for all your online learning")
 - ``GYM_PRIMARY_COLOR`` (default: "#3b85ff")
 - ``GYM_FOOTER_NAV_LINKS`` (default: ``[{"title": "About", "url": "/about"}, {"title": "Contact", "url": "/contact"}]``)
-- ``GYM_FOOTER_LEGAL_LINKS`` (default: ``[{"title": "Terms of service", "url": "/tos"}, {"title": "Gymnasium theme for Open edX", "url": "https://github.com/gymnasium/gym-theme-tutor-plugin"}]``)
+- ``GYM_FOOTER_LEGAL_LINKS`` (default: ``[{"title": "Terms of service", "url": "/tos"}, {"title": "Gymnasium theme for Open edX", "url": "https://github.com/gymnasium/gym-theme"}]``)
 
 The ``GYM_*`` settings listed above may be modified by running ``tutor config save --set GYM_...=...``. For instance, to remove all links from the footer, run::
 
@@ -68,7 +68,7 @@ This plugin can serve as a starting point to create your own themes. Just fork t
 Changing the default logo and other images
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The theme images are stored in `gymtheme/templates/gym/lms/static/images <https://github.com/gymnasium/gym-theme-tutor-plugin/tree/master/gymtheme/templates/gym/lms/static/images>`__ for the LMS, and in `gymtheme/templates/gym/cms/static/images <https://github.com/gymnasium/gym-theme-tutor-plugin/tree/master/gymtheme/templates/gym/cms/static/images>`__ for the CMS. To use custom images in your theme, just replace the files stored in these folders with your own.
+The theme images are stored in `gymtheme/templates/static/images <https://github.com/gymnasium/gym-theme-tutor-plugin/tree/master/gymtheme/templates/lms/static/images>`__ for the LMS, and in `gymtheme/templates/gym/cms/static/images <https://github.com/gymnasium/gym-theme/tree/master/gymtheme/templates/cms/static/images>`__ for the CMS. To use custom images in your theme, just replace the files stored in these folders with your own.
 
 Overriding the default "about", "contact", etc. static pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
