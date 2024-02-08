@@ -1,15 +1,24 @@
+from __future__ import annotations
+
+import os
+import typing as t
+
 import pkg_resources
 import requests
-import os
-import os.path
+from tutor import hooks
+from tutor.__about__ import __version_suffix__
+
+from .__about__ import __version__
+
+# Handle version suffix in nightly mode, just like tutor core
+if __version_suffix__:
+    __version__ += "-" + __version_suffix__
 from glob import glob
+
+# dotenv
 from dotenv import load_dotenv
 
 load_dotenv()
-
-from tutor import hooks
-
-from .__about__ import __version__
 
 response = requests.get('http://gym.soy/feeds/config.json')
 # response = requests.get('http://local.overhang.io/feeds/config.json')
@@ -89,6 +98,18 @@ hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
 hooks.Filters.ENV_PATTERNS_INCLUDE.add_item(
     r"gym-theme/lms/static/sass/partials/lms/theme/"
 )
+
+# init script: set theme automatically
+with open(
+    os.path.join(
+        pkg_resources.resource_filename("gymtheme", "templates"),
+        "gym-theme",
+        "tasks",
+        "init.sh",
+    ),
+    encoding="utf-8",
+) as task_file:
+    hooks.Filters.CLI_DO_INIT_TASKS.add_item(("lms", task_file.read()))
 
 # Load all configuration entries
 hooks.Filters.CONFIG_DEFAULTS.add_items(
