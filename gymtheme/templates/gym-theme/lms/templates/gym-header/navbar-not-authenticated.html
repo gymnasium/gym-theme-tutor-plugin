@@ -25,7 +25,7 @@ from openedx.core.djangoapps.user_authn.toggles import should_redirect_to_authn_
 {%- if GYM_MAIN_NAV -%}
 <ul role="list">
   {%- for link in GYM_MAIN_NAV -%}
-  <li><a href="{{ link['href'] }}">{{ link['title'] }}</a></li>
+  <li><a href="{{ link['href'] }}">{{ link['label'] }}</a></li>
   {%- endfor -%}
 </ul>
 {%- endif -%}

@@ -20,8 +20,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-response = requests.get('http://gym.soy/feeds/config.json')
-# response = requests.get('http://local.overhang.io/feeds/config.json')
+## TODO: use env files to pull in the MARKETING_SITE_BASE_URL
+# response = requests.get('http://gym.soy/feeds/config.json')
+response = requests.get('http://edly.io:8888/feeds/config.json')
 if response.status_code == 200:
     data = response.json()
 else:
@@ -36,13 +37,13 @@ config = {
         "CONFIG": data,
         "META": data['meta'],
         "ROOT_URL": data['urls']['root'],
-        "CMS_URL": data['urls']['cms'],
+        "DATA_URL": data['urls']['data'],
         "MFE_URL": data['urls']['mfe'],
         "PRIMARY_COLOR": data['colors']['primary'],  # Aquent Gymnasium Blue
         "SECONDARY_COLOR": data['colors']['secondary'],  # Aquent Gymnasium Orange
-        "MAIN_NAV": data['navigation']['main'],
-        "AUTH_NAV": data['navigation']['auth'],
-        "FOOTER_NAV_LINKS": data['navigation']['footer'],
+        "MAIN_NAV": data['header']['nav']['main'],
+        "AUTH_NAV": data['header']['nav']['auth'],
+        "FOOTER_NAV_LINKS": data['footer']['nav'],
         "FOOTER_LEGAL_LINKS": [],
         "LOGO_WHITE_SRC": data['logos']['main']['white']['src'],
         "LOGO_WHITE_SRCSET": data['logos']['main']['white']['srcset'],

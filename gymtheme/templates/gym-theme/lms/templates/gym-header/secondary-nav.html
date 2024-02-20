@@ -37,8 +37,8 @@ should_show_order_history = should_redirect_to_order_history_microfrontend() and
     </a>
     <ul>
       % if secondary_nav == "courses": 
-        {% for link in GYM_CONFIG['navigation']['courses'] %}
-          <li><a href="{{ link['href'] }}">{{ link['title'] }}</a></li>
+        {% for link in GYM_CONFIG['header']['nav']['courses'] %}
+          <li><a href="{{ link['href'] }}">{{ link['label'] }}</a></li>
         {% endfor %}
       % elif secondary_nav == "dashboard":
         <li><a href="${reverse('dashboard')}">${_("Dashboard")}</a></li>
