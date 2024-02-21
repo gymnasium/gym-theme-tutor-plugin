@@ -27,34 +27,24 @@
         </a>
         <p>{{ GYM_CONFIG['meta']['short_description'] }}</p>
       </div>
-      {% if GYM_FOOTER_NAV_LINKS %}
-        {% for menu in GYM_FOOTER_NAV_LINKS %}
+      {%- if GYM_FOOTER_NAV_LINKS -%}
+        {%- for menu in GYM_FOOTER_NAV_LINKS -%}
         <% slug = slugify('{{ menu['title'] }}') %>
         <nav id="${slug}" class="footer-section" aria-labelledby="${slug}-menu-label">
           <h2 id="${slug}-menu-label">{{ menu['title'] }}</h2>
           <ul>
-            {% for link in menu['links'] %}
+            {%- for link in menu['links'] -%}
             <li>
               <a href="{{ link['href'] }}"{% if ('rel' in link) %} rel="{{ link['rel'] }}"{% endif %}{% if ('target' in link) %} target="{{ link['target'] }}"{% endif %}>
                 {%- if ('src' in link) -%}
-                  <img 
-                    alt="{{ link['alt'] }}"
-                    src="{{ menu['img']['base_path'] }}{{ link['src'] }}"
-                    srcset="{{ menu['img']['base_path'] }}{{ link['srcset'] }}"
-                    decoding="{{ menu['img']['decoding'] }}"
-                    fetchpriority="{{ menu['img']['fetchpriority'] }}"
-                    width="{{ menu['img']['width'] }}"
-                    height="{{ menu['img']['height'] }}"
-                  >
-                {%- endif %}{{ link['label'] }}
-
-              </a>
+                  <img alt="{{ link['alt'] }}" src="{{ menu['img']['base_path'] }}{{ link['src'] }}" srcset="{{ menu['img']['base_path'] }}{{ link['srcset'] }}" {% for key, val in menu['img']['attr'].items() %} {{ key }}="{{ val }}"{% endfor -%}>
+                {%- endif %}{{ link['label'] }}</a>
             </li>
-            {% endfor %}
+            {%- endfor -%}
           </ul>
         </nav>
-        {% endfor %}
-      {% endif %}
+        {%- endfor -%}
+      {%- endif -%}
     </div>
 
     ## Please leave this link and use one of the logos provided
@@ -65,7 +55,6 @@
       <a href="https://openedx.org" target="_blank" rel="noopener">
         <img class="openedx-logo" alt="{{ GYM_CONFIG['logos']['openedx']['alt'] }}" src="{{ GYM_CONFIG['urls']['data'] }}{{ GYM_CONFIG['logos']['openedx']['src'] }}" decoding="async" fetchpriority="low" width="175" height="70" />
       </a>
-      
       <a href="https://docs.tutor.overhang.io" target="_blank" rel="noopener">
         <img class="tutor-logo" alt="{{ GYM_CONFIG['logos']['tutor']['alt'] }}" src="{{ GYM_CONFIG['urls']['data'] }}{{ GYM_CONFIG['logos']['tutor']['src'] }}" decoding="async" fetchpriority="low" width="125" height="24" />
       </a>
