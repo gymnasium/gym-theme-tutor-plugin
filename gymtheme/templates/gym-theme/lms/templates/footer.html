@@ -18,54 +18,11 @@
 %>
 
 <%namespace name='static' file='static_content.html'/>
-<footer class="site-footer" role="contentinfo">
-  <div class="container">
-    <div class="main">
-      <div class="header">
-        <a href="{{ GYM_CONFIG['urls']['root'] }}" aria-label="{{ GYM_CONFIG['meta']['title'] }} homepage">
-          <img alt={{ GYM_CONFIG['meta']['author'] }} src="{{ GYM_CONFIG['urls']['data'] }}{{ GYM_CONFIG['logos']['main']['white']['src'] }}" srcset="{{ GYM_CONFIG['urls']['data'] }}{{ GYM_CONFIG['logos']['main']['white']['srcset'] }}" decoding="async" fetchpriority="low" width="208" height="24" />
-        </a>
-        <p>{{ GYM_CONFIG['meta']['short_description'] }}</p>
-      </div>
-      {%- if GYM_FOOTER_NAV_LINKS -%}
-        {%- for menu in GYM_FOOTER_NAV_LINKS -%}
-        <% slug = slugify('{{ menu['title'] }}') %>
-        <nav id="${slug}" class="footer-section" aria-labelledby="${slug}-menu-label">
-          <h2 id="${slug}-menu-label">{{ menu['title'] }}</h2>
-          <ul>
-            {%- for link in menu['links'] -%}
-            <li>
-              <a href="{{ link['href'] }}"{% if ('rel' in link) %} rel="{{ link['rel'] }}"{% endif %}{% if ('target' in link) %} target="{{ link['target'] }}"{% endif %}>
-                {%- if ('src' in link) -%}
-                  <img alt="{{ link['alt'] }}" src="{{ menu['img']['base_path'] }}{{ link['src'] }}" srcset="{{ menu['img']['base_path'] }}{{ link['srcset'] }}" {% for key, val in menu['img']['attr'].items() %} {{ key }}="{{ val }}"{% endfor -%}>
-                {%- endif %}{{ link['label'] }}</a>
-            </li>
-            {%- endfor -%}
-          </ul>
-        </nav>
-        {%- endfor -%}
-      {%- endif -%}
-    </div>
 
-    ## Please leave this link and use one of the logos provided
-    ## The OpenEdX link may be hidden when this view is served
-    ## through an API to partner sites (such as marketing sites or blogs),
-    ## which are not technically powered by OpenEdX.
-    <aside class="stack" aria-label="Built with">
-      <a href="https://openedx.org" target="_blank" rel="noopener">
-        <img class="openedx-logo" alt="{{ GYM_CONFIG['logos']['openedx']['alt'] }}" src="{{ GYM_CONFIG['urls']['data'] }}{{ GYM_CONFIG['logos']['openedx']['src'] }}" decoding="async" fetchpriority="low" width="175" height="70" />
-      </a>
-      <a href="https://docs.tutor.overhang.io" target="_blank" rel="noopener">
-        <img class="tutor-logo" alt="{{ GYM_CONFIG['logos']['tutor']['alt'] }}" src="{{ GYM_CONFIG['urls']['data'] }}{{ GYM_CONFIG['logos']['tutor']['src'] }}" decoding="async" fetchpriority="low" width="125" height="24" />
-      </a>
-    </aside>
+{% if 'html' in GYM_CONFIG %}
+{{ GYM_CONFIG['html']['footer'] }}
+{% endif %}
 
-    ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
-    <p class="copyright">
-      <small>&copy; ${currentYear} <a href="{{ GYM_CONFIG['urls']['root'] }}" aria-label="{{ GYM_CONFIG['meta']['title'] }} homepage">{{ GYM_CONFIG['meta']['author'] }}</a></small>
-    </p>
-  </div>
-</footer>
 % if include_dependencies:
   <%static:js group='base_vendor'/>
   <%static:css group='style-vendor'/>
