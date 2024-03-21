@@ -21,8 +21,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 ## TODO: use env files to pull in the MARKETING_SITE_BASE_URL
-# response = requests.get('http://gym.soy/feeds/config.json')
-response = requests.get('http://edly.io:8888/feeds/config.json')
+response = requests.get('https://gym.soy/feeds/config.json')
+# response = requests.get('http://edly.io:8888/feeds/config.json')
 if response.status_code == 200:
     data = response.json()
 else:
