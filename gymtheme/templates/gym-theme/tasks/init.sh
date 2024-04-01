@@ -8,7 +8,6 @@ def assign_theme(domain):
         site.themes.create(theme_dir_name='gym-theme')
 
 assign_theme('{{ LMS_HOST }}')
-assign_theme('{{ LMS_HOST }}')
 assign_theme('{{ LMS_HOST }}:8000')
 assign_theme('{{ CMS_HOST }}')
 assign_theme('{{ CMS_HOST }}:8001')
