@@ -1,3 +1,0 @@
-header * {
-    Content-Security-Policy "frame-ancestors 'self' {{ GYM_BASE_DOMAIN }} *.{{ GYM_BASE_DOMAIN }} {{ LMS_HOST }} *.{{ LMS_HOST }} {{ GYM_BASE_URL }};"
-}
