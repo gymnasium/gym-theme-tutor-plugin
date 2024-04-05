@@ -18,11 +18,15 @@ from glob import glob
 # dotenv
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(".env", override=True)
+load_dotenv(".env.local",override=False)
+load_dotenv(".env.development",override=False)
+load_dotenv(".env.staging",override=False)
+load_dotenv(".env.production",override=False)
 
-## TODO: use env files to pull in the MARKETING_SITE_BASE_URL
-response = requests.get('https://gym.soy/feeds/config.json')
-# response = requests.get('http://edly.io:8888/feeds/config.json')
+endpoint = os.getenv("MARKETING_SITE_BASE_URL") + "/feeds/config.json"
+
+response = requests.get(endpoint)
 if response.status_code == 200:
     data = response.json()
 else:
@@ -36,9 +40,12 @@ config = {
         "VERSION": __version__,
         "CONFIG": data,
         "META": data['meta'],
-        "ROOT_URL": data['urls']['root'],
+        "BASE_DOMAIN": data['urls']['root_domain'],
+        "BASE_URL": data['urls']['root'],
         "DATA_URL": data['urls']['data'],
         "MFE_URL": data['urls']['mfe'],
+        "LMS_URL": data['urls']['lms'],
+        "CMS_URL": data['urls']['cms'],
         "PRIMARY_COLOR": data['colors']['primary'],  # Aquent Gymnasium Blue
         "SECONDARY_COLOR": data['colors']['secondary'],  # Aquent Gymnasium Orange
         "MAIN_NAV": data['header']['nav']['main'],
