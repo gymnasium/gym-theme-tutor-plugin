@@ -97,16 +97,7 @@ MKTG_URLS = {
   'WHAT_IS_VERIFIED_CERT': '/faq#how-do-i-get-my-certificate',
 }
 
-SHARED_COOKIE_DOMAIN = "{{ GYM_BASE_DOMAIN }}"
-SESSION_COOKIE_DOMAIN = "{{ GYM_BASE_DOMAIN }}"
-
-CORS_ORIGIN_WHITELIST.append("{{ GYM_BASE_URL }}")
-CSRF_TRUSTED_ORIGINS.append("{{ GYM_BASE_URL }}")
-LOGIN_REDIRECT_WHITELIST.append("{{ GYM_BASE_URL }}")
-
-MFE_CONFIG["GYM_BASE_URL"] = '{{ GYM_BASE_URL }}'
-MFE_CONFIG["CMS_BASE_URL"] = '{{ CMS_HOST }}'
-MFE_CONFIG["LMS_BASE_URL"] = '{{ LMS_HOST }}'
+MFE_CONFIG["MARKETING_SITE_BASE_URL"] = '{{ GYM_BASE_URL }}'
 MFE_CONFIG["LOGIN_URL"] = '{{ GYM_LMS_URL }}/login'
 MFE_CONFIG["LOGOUT_URL"] = '{{ GYM_LMS_URL }}/logout'
 MFE_CONFIG["SUPPORT_URL"] = '{{ GYM_BASE_URL }}/support'
@@ -116,8 +107,6 @@ MFE_CONFIG["SITE_NAME"] = '{{ PLATFORM_NAME }}'
 MFE_CONFIG["CONTACT_MAILING_ADDRESS"] = ""
 MFE_CONFIG["FAVICON_URL"] = '{{ GYM_BASE_URL }}/favicon.svg'
 
-MFE_CONFIG["SHARED_COOKIE_DOMAIN"] = "{{ GYM_BASE_DOMAIN }}"
-MFE_CONFIG["SESSION_COOKIE_DOMAIN"] = "{{ GYM_BASE_DOMAIN }}"
 
 # These images are only applied to non-public facing/internal use MFEs (course authoring, communications, grading, ora-grading, etc)
 MFE_CONFIG["LOGO_URL"] = '{{ GYM_CMS_URL }}/static/studio/gym-theme/images/studio-logo.png'
