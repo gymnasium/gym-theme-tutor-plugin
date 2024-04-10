@@ -1,0 +1,97 @@
+# via openedx-lms-common-settings
+PIPELINE['STYLESHEETS'] = {
+  'style-vendor': {
+    'source_filenames': [],
+    'output_filename': 'css/lms-style-vendor.css',
+  },
+  'style-vendor-tinymce-content': {
+    'source_filenames': [],
+    'output_filename': 'css/lms-style-vendor-tinymce-content.css',
+  },
+  'style-vendor-tinymce-skin': {
+    'source_filenames': [],
+    'output_filename': 'css/lms-style-vendor-tinymce-skin.css',
+  },
+  'style-main-v1': {
+    'source_filenames': [],
+    'output_filename': 'css/lms-main-v1.css',
+  },
+  'style-main-v1-rtl': {
+    'source_filenames': [],
+    'output_filename': 'css/lms-main-v1-rtl.css',
+  },
+  'style-course-vendor': {
+      'source_filenames': [],
+      'output_filename': 'css/lms-style-course-vendor.css',
+  },
+  'style-course': {
+      'source_filenames': [],
+      'output_filename': 'css/lms-course.css',
+  },
+  'style-course-rtl': {
+    'source_filenames': [],
+    'output_filename': 'css/lms-course-rtl.css',
+  },
+  'style-student-notes': {
+    'source_filenames': [],
+    'output_filename': 'css/lms-style-student-notes.css',
+  },
+  'style-inline-discussion': {
+    'source_filenames': [],
+    'output_filename': 'css/discussion/inline-discussion.css',
+  },
+  'style-inline-discussion-rtl': {
+    'source_filenames': [],
+    'output_filename': 'css/discussion/inline-discussion-rtl.css',
+  },
+  FOOTER_CSS['openedx']['ltr']: {
+    'source_filenames': [],
+    'output_filename': 'css/lms-footer.css',
+  },
+  FOOTER_CSS['openedx']['rtl']: {
+    'source_filenames': [],
+    'output_filename': 'css/lms-footer-rtl.css'
+  },
+  FOOTER_CSS['edx']['ltr']: {
+    'source_filenames': [],
+    'output_filename': 'css/lms-footer-edx.css'
+  },
+  FOOTER_CSS['edx']['rtl']: {
+    'source_filenames': [],
+    'output_filename': 'css/lms-footer-edx-rtl.css'
+  },
+  'style-certificates': {
+    'source_filenames': [],
+    'output_filename': 'css/certificates-style.css'
+  },
+  'style-certificates-rtl': {
+    'source_filenames': [],
+    'output_filename': 'css/certificates-style-rtl.css'
+  },
+  'style-mobile': {
+    'source_filenames': [],
+    'output_filename': 'css/lms-mobile.css',
+  },
+  'style-mobile-rtl': {
+    'source_filenames': [],
+    'output_filename': 'css/lms-mobile-rtl.css',
+  },
+}
+
+FEATURES['ENABLE_MKTG_SITE'] = True
+BASE_DOMAIN="{{ GYM_BASE_DOMAIN }}"
+BASE_URL="{{ GYM_BASE_URL }}"
+MARKETING_SITE_BASE_URL="{{ GYM_BASE_URL }}"
+
+MKTG_URLS = {
+  'ABOUT': '/about',
+  'CONTACT': '/contact',
+  'FAQ': '/faq',
+  'COURSES': '/courses',
+  'JOBS': '/jobs',
+  'ROOT': '{{ GYM_BASE_URL }}',
+  'TOS': '/privacy-policy',
+  'HONOR': '/privacy-policy',
+  'PRIVACY': '/privacy-policy',
+  'WHAT_IS_VERIFIED_CERT': '/faq#how-do-i-get-my-certificate',
+}

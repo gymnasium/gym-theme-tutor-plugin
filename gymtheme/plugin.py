@@ -42,7 +42,6 @@ config = {
         "META": data['meta'],
         "BASE_DOMAIN": data['urls']['root_domain'],
         "BASE_URL": data['urls']['root'],
-        "DATA_URL": data['urls']['data'],
         "MFE_URL": data['urls']['mfe'],
         "LMS_URL": data['urls']['lms'],
         "CMS_URL": data['urls']['cms'],
