@@ -32,9 +32,8 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
   {%- endfor -%}
 </ul>
 {%- endif -%}
-{%- if GYM_AUTH_NAV -%}
+
 <ul class="auth" role="list">
   <li><a href="${reverse('dashboard')}">${_("Dashboard")}</a></li>
   <li><a href="${reverse('logout')}">${_("Log Out")}</a></li>
 </ul>
-{%- endif -%}

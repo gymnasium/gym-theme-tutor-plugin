@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 import typing as t
+import html
 
 import pkg_resources
 import requests
@@ -49,13 +50,20 @@ config = {
         "SECONDARY_COLOR": data['colors']['secondary'],  # Aquent Gymnasium Orange
         "MAIN_NAV": data['header']['nav']['main'],
         "AUTH_NAV": data['header']['nav']['auth'],
-        "FOOTER_NAV_LINKS": data['footer']['nav'],
+        "COURSE_NAV": data['header']['nav']['courses'],
+        "COURSES": data['courses'],
+        "BIOS": data['bios'],
+        "LOGIN_LABEL": data['header']['nav']['auth']['public'][0]['label'],
+        "REGISTER_LABEL": data['header']['nav']['auth']['public'][1]['label'],
+        "DASHBOARD_LABEL": data['header']['nav']['auth']['private'][0]['label'],
+        "LOGOUT_LABEL": data['header']['nav']['auth']['private'][1]['label'],
+        "AUTHN_WELCOME_MSG": html.escape(data['messages']['mfe']['authn']['welcome']),
+        "FOOTER_HTML": html.escape(data['html']['footer']),
         "FOOTER_LEGAL_LINKS": [],
         "LOGO_WHITE_SRC": data['logos']['main']['white']['src'],
         "LOGO_WHITE_SRCSET": data['logos']['main']['white']['srcset'],
         "LOGO_BLACK_SRC": data['logos']['main']['black']['src'],
         "LOGO_BLACK_SRCSET": data['logos']['main']['black']['srcset'],
-
 
         "HOMEPAGE_BG_IMAGE": "",
         # EXTRAS: additional CSS for html theme
