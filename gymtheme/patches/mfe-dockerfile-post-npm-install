@@ -2,4 +2,4 @@ ADD https://api.github.com/repos/gymnasium/gym-frontend-components/git/refs/head
 
 ADD https://api.github.com/repos/gymnasium/brand-openedx/git/refs/heads/gym.quince.1 /tmp/gitref-brand
 
-RUN npm install '@edx/gym-frontend@git+https://git@github.com/gymnasium/gym-frontend-components.git#gym.quince.2' --registry=$NPM_REGISTRY && npm install '@edx/brand@git+https://git@github.com/gymnasium/brand-openedx.git#gym.quince.1' --registry=$NPM_REGISTRY
+RUN npm ci '@edx/gym-frontend@git+https://git@github.com/gymnasium/gym-frontend-components.git#gym.quince.2' --registry=$NPM_REGISTRY && npm ci '@edx/brand@git+https://git@github.com/gymnasium/brand-openedx.git#gym.quince.1' --registry=$NPM_REGISTRY
