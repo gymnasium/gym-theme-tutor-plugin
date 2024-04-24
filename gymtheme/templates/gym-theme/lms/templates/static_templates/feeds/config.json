@@ -1,6 +1,6 @@
 {
   "meta": {{ GYM_CONFIG["meta"] | replace("\'", "\"") }},
-  "messages": {{ GYM_CONFIG['messages'] | replace("\'", "\"") }},
+  "msg": {{ GYM_CONFIG['msg'] | replace("\'", "\"") }},
   "urls": {{ GYM_CONFIG['urls'] | replace("\'", "\"") }},
   "paths": {{ GYM_CONFIG['paths'] | replace("\'", "\"") }}
 }
