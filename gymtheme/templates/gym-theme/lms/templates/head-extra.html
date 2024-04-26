@@ -1,4 +1,6 @@
 ## mako
 <%namespace name='static' file='/static_content.html'/>
 
-<link rel="stylesheet" href="{{ GYM_BASE_URL }}{{ GYM_CONFIG['css']['lms'] }}" type="text/css" media="all" />
+<link rel="dns-prefetch" href="{{ GYM_BASE_URL }}" />
+<link rel="preload" fetchpriority="high" href="{{ GYM_BASE_URL }}/css/theme.css" as="style" />
+<link rel="stylesheet" href="{{ GYM_BASE_URL }}/css/theme.css" type="text/css" media="all" />

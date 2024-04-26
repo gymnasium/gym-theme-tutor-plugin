@@ -46,8 +46,6 @@ config = {
         "MFE_URL": data['urls']['mfe'],
         "LMS_URL": data['urls']['lms'],
         "CMS_URL": data['urls']['cms'],
-        "PRIMARY_COLOR": data['colors']['primary'],  # Aquent Gymnasium Blue
-        "SECONDARY_COLOR": data['colors']['secondary'],  # Aquent Gymnasium Orange
         "MAIN_NAV": data['header']['nav']['main'],
         "AUTH_NAV": data['header']['nav']['auth'],
         "COURSE_NAV": data['header']['nav']['courses'],
@@ -63,8 +61,6 @@ config = {
         "FOOTER_LEGAL_LINKS": [],
         "LOGO_WHITE_SRC": data['logos']['main']['white']['src'],
         "LOGO_WHITE_SRCSET": data['logos']['main']['white']['srcset'],
-        "LOGO_BLACK_SRC": data['logos']['main']['black']['src'],
-        "LOGO_BLACK_SRCSET": data['logos']['main']['black']['srcset'],
 
         "HOMEPAGE_BG_IMAGE": "",
         # EXTRAS: additional CSS for html theme
