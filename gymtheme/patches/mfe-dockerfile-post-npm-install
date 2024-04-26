@@ -1,5 +1,3 @@
-ADD https://api.github.com/repos/gymnasium/gym-frontend-components/git/refs/heads/main /tmp/gitref-frontend-components
-
 ADD https://api.github.com/repos/gymnasium/brand-openedx/git/refs/heads/main /tmp/gitref-brand
 
-RUN npm install '@edx/gym-frontend@git+https://git@github.com/gymnasium/gym-frontend-components.git#main' --registry=$NPM_REGISTRY && npm install '@edx/brand@git+https://git@github.com/gymnasium/brand-openedx.git#main' --registry=$NPM_REGISTRY && npm install 'dompurify';
+RUN npm install '@edx/brand@git+https://git@github.com/gymnasium/brand-openedx.git#main' --registry=$NPM_REGISTRY
