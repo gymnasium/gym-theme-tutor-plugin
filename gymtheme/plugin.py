@@ -4,7 +4,7 @@ import os
 import typing as t
 import html
 
-import pkg_resources
+import importlib_resources
 import requests
 from tutor import hooks
 from tutor.__about__ import __version_suffix__
@@ -97,7 +97,7 @@ config = {
 
 # Theme templates
 hooks.Filters.ENV_TEMPLATE_ROOTS.add_item(
-    pkg_resources.resource_filename("gymtheme", "templates")
+    str(importlib_resources.files("gymtheme") / "templates")
 )
 # This is where the theme is rendered in the openedx build directory
 hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
@@ -117,7 +117,7 @@ hooks.Filters.ENV_PATTERNS_INCLUDE.add_items(
 # init script: set theme automatically
 with open(
     os.path.join(
-        pkg_resources.resource_filename("gymtheme", "templates"),
+        str(importlib_resources.files("gymtheme") / "templates"),
         "gym-theme",
         "tasks",
         "init.sh",
@@ -143,7 +143,7 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(list(config["overrides"].items()))
 # apply a patch based on the file's name and contents.
 for path in glob(
     os.path.join(
-        pkg_resources.resource_filename("gymtheme", "patches"),
+        str(importlib_resources.files("gymtheme") / "patches"),
         "*",
     )
 ):
