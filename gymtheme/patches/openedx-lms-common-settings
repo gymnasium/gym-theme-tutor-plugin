@@ -135,7 +135,3 @@ MKTG_URLS = {
   'WHAT_IS_VERIFIED_CERT': '/faq#how-do-i-get-my-certificate',
   'FEEDS/CONFIG.JSON': 'feeds/config.json',
 }
-
-MKTG_URL_LINK_MAP = {
-  'FEEDS/CONFIG.JSON': 'feeds/config.json',
-}
