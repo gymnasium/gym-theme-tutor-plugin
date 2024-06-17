@@ -8,20 +8,18 @@
   from datetime import datetime
   currentYear = datetime.now().year
   import re
-
-  def slugify(s):
-    s = s.lower().strip()
-    s = re.sub(r'[^\w\s-]', '', s)
-    s = re.sub(r'[\s_-]+', '-', s)
-    s = re.sub(r'^-+|-+$', '', s)
-    return s
 %>
 
 <%namespace name='static' file='static_content.html'/>
 
-{% if 'html' in GYM_CONFIG %}
-{{ GYM_CONFIG['html']['footer'] }}
-{% endif %}
+{% if 'html' in GYM_CONFIG -%}
+  {%- if 'footer' in GYM_CONFIG['html'] -%}
+    {{ GYM_CONFIG['html']['footer'] }}
+  {%- endif -%}
+  {%- if 'scripts' in GYM_CONFIG['html'] -%}
+    {{ GYM_CONFIG['html']['scripts'] }}
+  {%- endif -%}
+{%- endif %}
 
 % if include_dependencies:
   <%static:js group='base_vendor'/>
