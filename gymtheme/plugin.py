@@ -58,7 +58,6 @@ config = {
         "LOGOUT_LABEL": data['header']['nav']['auth']['private'][1]['label'],
         "AUTHN_WELCOME_MSG": html.escape(data['msg']['mfe']['authn']['welcome']),
         "FOOTER_HTML": html.escape(data['html']['footer']),
-        "SCRIPTS_HTML": html.escape(data['html']['scripts']),
         "FOOTER_LEGAL_LINKS": [],
         "LOGO_WHITE_SRC": data['logos']['main']['white']['src'],
         "LOGO_WHITE_SRCSET": data['logos']['main']['white']['srcset'],
