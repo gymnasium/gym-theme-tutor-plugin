@@ -8,6 +8,7 @@
 from django.urls import reverse
 from django.utils.translation import gettext as _
 from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
+import os
 %>
 
 <%
@@ -28,12 +29,13 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
 {%- if GYM_MAIN_NAV -%}
 <ul role="list">
   {%- for link in GYM_MAIN_NAV -%}
-  <li><a href="{{ link['href'] }}">{{ link['label'] }}</a></li>
+  {%- set link_path = link['href'] | replace(GYM_BASE_URL,"") -%}
+  <li><a href="{{ link['href'] }}"${' class="active"' if '{{ link_path }}' in request.path else ''}>{{ link['label'] }}</a></li>
   {%- endfor -%}
 </ul>
 {%- endif -%}
 
 <ul class="auth" role="list">
-  <li><a href="${reverse('dashboard')}">${_("Dashboard")}</a></li>
+  <li><a href="${reverse('dashboard')}"${' class="active"' if reverse('dashboard') == request.path else ''}>${_("Dashboard")}</a></li>
   <li><a href="${reverse('logout')}">${_("Log Out")}</a></li>
 </ul>
