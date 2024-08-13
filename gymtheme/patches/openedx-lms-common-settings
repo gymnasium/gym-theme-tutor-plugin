@@ -133,5 +133,4 @@ MKTG_URLS = {
   'HONOR': '/privacy-policy',
   'PRIVACY': '/privacy-policy',
   'WHAT_IS_VERIFIED_CERT': '/faq#how-do-i-get-my-certificate',
-  'FEEDS/CONFIG.JSON': 'feeds/config.json',
 }
