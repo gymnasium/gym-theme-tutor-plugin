@@ -1,3 +1,0 @@
-ADD https://api.github.com/repos/gymnasium/brand-openedx/git/refs/heads/main /tmp/gitref-brand
-
-RUN npm install '@edx/brand@git+https://git@github.com/gymnasium/brand-openedx.git#main' --registry=$NPM_REGISTRY
