@@ -33,9 +33,9 @@ from openedx.core.djangoapps.user_authn.toggles import should_redirect_to_authn_
 <ul class="auth" role="list">
 % if allows_login:
   % if should_redirect_to_authn_mfe:
-    <li><a class="sign-in-btn btn" href="${settings.AUTHN_MICROFRONTEND_URL}/login${login_query()}">${_("Sign In")}</a></li>
+    <li><a class="sign-in-btn" href="${settings.AUTHN_MICROFRONTEND_URL}/login${login_query()}">${_("Sign In")}</a></li>
   % else:
-    <li><a class="sign-in-btn btn" href="/login${login_query()}">${_("Sign In")}</a></li>
+    <li><a class="sign-in-btn" href="/login${login_query()}">${_("Sign In")}</a></li>
   % endif
   % if allow_public_account_creation and not disable_register_button:
     % if should_redirect_to_authn_mfe:
