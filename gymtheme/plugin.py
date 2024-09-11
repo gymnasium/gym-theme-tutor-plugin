@@ -41,8 +41,8 @@ config = {
         "VERSION": __version__,
         "CONFIG": data,
         "META": data['meta'],
-        "BASE_DOMAIN": data['urls']['root_domain'],
-        "BASE_URL": data['urls']['root'],
+        "BASE_DOMAIN": os.getenv("BASE_DOMAIN"),
+        "BASE_URL": os.getenv("MARKETING_SITE_BASE_URL"),
         "MFE_URL": data['urls']['mfe'],
         "LMS_URL": data['urls']['lms'],
         "CMS_URL": data['urls']['cms'],
@@ -59,38 +59,21 @@ config = {
         "FOOTER_LEGAL_LINKS": [],
         "LOGO_WHITE_SRC": data['logos']['main']['white']['src'],
         "LOGO_WHITE_SRCSET": data['logos']['main']['white']['srcset'],
-
         "HOMEPAGE_BG_IMAGE": "",
         # EXTRAS: additional CSS for html theme
         "EXTRAS": "",
         # OVERRIDES: additional CSS for mfe branding
         "OVERRIDES": "",
         "FONTS": "",
-
-        # static page templates
-        "STATIC_TEMPLATE_404": None,
-        "STATIC_TEMPLATE_429": None,
-        "STATIC_TEMPLATE_ABOUT": None,
-        "STATIC_TEMPLATE_BLOG": None,
-        "STATIC_TEMPLATE_CONTACT": None,
-        "STATIC_TEMPLATE_DONATE": None,
-        "STATIC_TEMPLATE_EMBARGO": None,
-        "STATIC_TEMPLATE_FAQ": None,
-        "STATIC_TEMPLATE_HELP": None,
-        "STATIC_TEMPLATE_HONOR": None,
-        "STATIC_TEMPLATE_JOBS": None,
-        "STATIC_TEMPLATE_MEDIA_KIT": None,
-        "STATIC_TEMPLATE_NEWS": None,
-        "STATIC_TEMPLATE_PRESS": None,
-        "STATIC_TEMPLATE_PRIVACY": None,
-        "STATIC_TEMPLATE_SERVER_DOWN": None,
-        "STATIC_TEMPLATE_SERVER_ERROR": None,
-        "STATIC_TEMPLATE_SERVER_OVERLOADED": None,
-        "STATIC_TEMPLATE_SITEMAP": None,
-        "STATIC_TEMPLATE_TOS": None,
     },
     "unique": {},
-    "overrides": {},
+    "overrides": {
+        "BASE_DOMAIN": os.getenv("BASE_DOMAIN"),
+        "BASE_URL": os.getenv("MARKETING_SITE_BASE_URL"),
+        "MARKETING_SITE_BASE_URL": os.getenv("MARKETING_SITE_BASE_URL"),
+        "SESSION_COOKIE_DOMAIN": os.getenv("BASE_DOMAIN"),
+        "SHARED_COOKIE_DOMAIN": os.getenv("BASE_DOMAIN"),
+    },
 }
 
 # Theme templates
