@@ -1,4 +1,4 @@
-# via gym-theme openedx-lms-production-settings
+# via gym-theme openedx-cms-development-settings
 BASE_DOMAIN = "{{ BASE_DOMAIN }}"
 MARKETING_SITE_BASE_URL = "{{ MARKETING_SITE_BASE_URL }}"
 SHARED_COOKIE_DOMAIN = "{{ BASE_DOMAIN }}"
