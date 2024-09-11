@@ -1,13 +1,12 @@
 # via gym-theme caddyfile-lms
-
 header * {
-  Content-Security-Policy "
-    default-src {{ LMS_HOST }} *.{{ LMS_HOST }} {{ BASE_DOMAIN }} *.{{ BASE_DOMAIN }} {{ MARKETING_SITE_BASE_URL }} gym.soy *.gym.soy gymnasium.day *.gymnasium.day thegymnasium.com *.thegymnasium.com;
-    connect-src {{ LMS_HOST }} *.{{ LMS_HOST }} {{ BASE_DOMAIN }} *.{{ BASE_DOMAIN }} {{ MARKETING_SITE_BASE_URL }} gym.soy *.gym.soy gymnasium.day *.gymnasium.day thegymnasium.com *.thegymnasium.com;
-    frame-ancestors {{ LMS_HOST }} *.{{ LMS_HOST }} {{ BASE_DOMAIN }} *.{{ BASE_DOMAIN }} {{ MARKETING_SITE_BASE_URL }} gym.soy *.gym.soy gymnasium.day *.gymnasium.day thegymnasium.com *.thegymnasium.com;
-    style-src {{ LMS_HOST }} *.{{ LMS_HOST }} {{ BASE_DOMAIN }} *.{{ BASE_DOMAIN }} {{ MARKETING_SITE_BASE_URL }} gym.soy *.gym.soy gymnasium.day *.gymnasium.day thegymnasium.com *.thegymnasium.com;
-    script-src {{ LMS_HOST }} *.{{ LMS_HOST }} {{ BASE_DOMAIN }} *.{{ BASE_DOMAIN }} {{ MARKETING_SITE_BASE_URL }} gym.soy *.gym.soy gymnasium.day *.gymnasium.day thegymnasium.com *.thegymnasium.com;
-    font-src {{ LMS_HOST }} *.{{ LMS_HOST }} {{ BASE_DOMAIN }} *.{{ BASE_DOMAIN }} {{ MARKETING_SITE_BASE_URL }} gym.soy *.gym.soy gymnasium.day *.gymnasium.day thegymnasium.com *.thegymnasium.com;
-    img-src data: {{ LMS_HOST }} *.{{ LMS_HOST }} {{ BASE_DOMAIN }} *.{{ BASE_DOMAIN }} {{ MARKETING_SITE_BASE_URL }} gym.soy *.gym.soy gymnasium.day *.gymnasium.day thegymnasium.com *.thegymnasium.com;
-  "
+    Content-Security-Policy "
+        default-src {{ LMS_HOST }} *.{{ LMS_HOST }} {{ BASE_DOMAIN }} *.{{ BASE_DOMAIN }} {{ MARKETING_SITE_BASE_URL }};
+        connect-src {{ LMS_HOST }} *.{{ LMS_HOST }} {{ BASE_DOMAIN }} *.{{ BASE_DOMAIN }} {{ MARKETING_SITE_BASE_URL }};
+        frame-ancestors {{ LMS_HOST }} *.{{ LMS_HOST }} {{ BASE_DOMAIN }} *.{{ BASE_DOMAIN }} {{ MARKETING_SITE_BASE_URL }};
+        style-src {{ LMS_HOST }} *.{{ LMS_HOST }} {{ BASE_DOMAIN }} *.{{ BASE_DOMAIN }} {{ MARKETING_SITE_BASE_URL }};
+        script-src {{ LMS_HOST }} *.{{ LMS_HOST }} {{ BASE_DOMAIN }} *.{{ BASE_DOMAIN }} {{ MARKETING_SITE_BASE_URL }};
+        font-src {{ LMS_HOST }} *.{{ LMS_HOST }} {{ BASE_DOMAIN }} *.{{ BASE_DOMAIN }} {{ MARKETING_SITE_BASE_URL }};
+        img-src data: {{ LMS_HOST }} *.{{ LMS_HOST }} {{ BASE_DOMAIN }} *.{{ BASE_DOMAIN }} {{ MARKETING_SITE_BASE_URL }};
+    "
 }
