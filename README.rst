@@ -82,7 +82,7 @@ The static templates used by Open edX to render those pages are all stored in th
 For instance, edit the "donate.html" file in this directory. We can derive the content of this file from the contents of the `donate.html <https://github.com/edx/edx-platform/blob/open-release/palm.master/lms/templates/static_templates/donate.html>`__ static template in edx-platform::
 
     <%page expression_filter="h"/>
-    <%! from django.utils.translation import ugettext as _ %>
+    <%! from django.utils.translation import gettext as _ %>
     <%inherit file="../main.html" />
 
     <%block name="pagetitle">${_("Donate")}</%block>
