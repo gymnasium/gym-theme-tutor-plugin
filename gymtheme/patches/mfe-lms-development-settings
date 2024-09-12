@@ -5,6 +5,7 @@ MFE_CONFIG["LOGO_URL"] = '{{ GYM_CMS_URL }}/static/studio/gym-theme/images/studi
 MFE_CONFIG["LOGO_TRADEMARK_URL"] = '{{ GYM_CMS_URL }}/static/studio/gym-theme/images/studio-logo.png'
 MFE_CONFIG["LOGO_WHITE_URL"] = '{{ GYM_CMS_URL }}/static/studio/gym-theme/images/studio-logo.png'
 
+MFE_CONFIG["ENABLE_IMAGE_LAYOUT"] = 'false'
 MFE_CONFIG["MARKETING_SITE_BASE_URL"] = '{{ GYM_BASE_URL }}'
 MFE_CONFIG["LOGIN_URL"] = '{{ GYM_LMS_URL }}/login'
 MFE_CONFIG["LOGOUT_URL"] = '{{ GYM_LMS_URL }}/logout'
