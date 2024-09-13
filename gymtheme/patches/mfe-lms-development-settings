@@ -20,6 +20,7 @@ MFE_CONFIG["SHARED_COOKIE_DOMAIN"] = '{{ GYM_BASE_DOMAIN }}'
 {% if get_mfe("learning") %}
 MFE_CONFIG["LEARNING_MICROFRONTEND_URL"] = "http://{{ MFE_HOST }}:{{ get_mfe("learning")["port"] }}/learning"
 {% endif %}
+
 MFE_CONFIG["GYM_LOGO_SRC"] = '{{ GYM_LOGO_WHITE_SRC }}'
 MFE_CONFIG["GYM_LOGO_SRCSET"] = '{{ GYM_LOGO_WHITE_SRCSET }}'
 MFE_CONFIG["GYM_MAIN_NAV"] = {{ GYM_MAIN_NAV }}
