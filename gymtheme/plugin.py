@@ -70,9 +70,20 @@ config = {
     "overrides": {
         "BASE_DOMAIN": os.getenv("BASE_DOMAIN"),
         "BASE_URL": os.getenv("MARKETING_SITE_BASE_URL"),
+        "CSRF_COOKIE_DOMAIN": os.getenv("BASE_DOMAIN"),
         "MARKETING_SITE_BASE_URL": os.getenv("MARKETING_SITE_BASE_URL"),
+        "PLATFORM_NAME": data['meta']['title'],
         "SESSION_COOKIE_DOMAIN": os.getenv("BASE_DOMAIN"),
         "SHARED_COOKIE_DOMAIN": os.getenv("BASE_DOMAIN"),
+        "SITE_NAME": data['meta']['title'],
+        "MFE_CONFIG": {
+            "BASE_DOMAIN": os.getenv("BASE_DOMAIN"),
+            "BASE_URL": os.getenv("MARKETING_SITE_BASE_URL"),
+            "CSRF_COOKIE_DOMAIN": os.getenv("BASE_DOMAIN"),
+            "MARKETING_SITE_BASE_URL": os.getenv("MARKETING_SITE_BASE_URL"),
+            "SESSION_COOKIE_DOMAIN": os.getenv("BASE_DOMAIN"),
+            "SHARED_COOKIE_DOMAIN": os.getenv("BASE_DOMAIN"),
+        }
     },
 }
 
