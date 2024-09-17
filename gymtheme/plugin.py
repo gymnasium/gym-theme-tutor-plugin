@@ -94,7 +94,7 @@ hooks.Filters.ENV_TEMPLATE_ROOTS.add_item(
 # This is where the theme is rendered in the openedx build directory
 hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
     [
-        ("gym", "build/openedx/themes"),
+        ("gym-theme", "build/openedx/themes"),
     ],
 )
 
