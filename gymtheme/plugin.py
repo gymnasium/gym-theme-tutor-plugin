@@ -20,10 +20,6 @@ from glob import glob
 from dotenv import load_dotenv
 
 load_dotenv(".env", override=True)
-load_dotenv(".env.local",override=False)
-load_dotenv(".env.development",override=False)
-load_dotenv(".env.staging",override=False)
-load_dotenv(".env.production",override=False)
 
 endpoint = os.getenv("MARKETING_SITE_BASE_URL") + "/feeds/config.json"
 
