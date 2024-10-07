@@ -69,6 +69,7 @@ config = {
         # "CSRF_COOKIE_DOMAIN": os.getenv("BASE_DOMAIN"),
         "MARKETING_SITE_BASE_URL": os.getenv("MARKETING_SITE_BASE_URL"),
         "PLATFORM_NAME": data['meta']['title'],
+        "PLATFORM_DESCRIPTION": data['meta']['description'],
         "SESSION_COOKIE_DOMAIN": os.getenv("BASE_DOMAIN"),
         "SHARED_COOKIE_DOMAIN": os.getenv("BASE_DOMAIN"),
         "SITE_NAME": data['meta']['title'],
