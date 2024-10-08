@@ -66,7 +66,6 @@ config = {
     "overrides": {
         "BASE_DOMAIN": os.getenv("BASE_DOMAIN"),
         "BASE_URL": os.getenv("MARKETING_SITE_BASE_URL"),
-        # "CSRF_COOKIE_DOMAIN": os.getenv("BASE_DOMAIN"),
         "MARKETING_SITE_BASE_URL": os.getenv("MARKETING_SITE_BASE_URL"),
         "PLATFORM_NAME": data['meta']['title'],
         "PLATFORM_DESCRIPTION": data['meta']['description'],
@@ -80,7 +79,9 @@ config = {
             "MARKETING_SITE_BASE_URL": os.getenv("MARKETING_SITE_BASE_URL"),
             "SESSION_COOKIE_DOMAIN": os.getenv("BASE_DOMAIN"),
             "SHARED_COOKIE_DOMAIN": os.getenv("BASE_DOMAIN"),
-        }
+        },
+        "INTERCOM_APP_ID": os.getenv("INTERCOM_APP_ID"),
+        "ONETRUST_COOKIE_SCRIPT_ID": os.getenv("ONETRUST_COOKIE_SCRIPT_ID"),
     },
 }
 
