@@ -3,7 +3,7 @@
 
 {% if INTERCOM_APP_ID -%}
 % if settings.INTERCOM_APP_ID:
-  % if user.is_authenticated():
+  % if user.is_authenticated:
   <!-- begin Intercom Script -->
   <script>
   const __intercom_app_id__ = "{{ INTERCOM_APP_ID }}";
