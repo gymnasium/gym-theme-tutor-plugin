@@ -1,0 +1,39 @@
+<%page expression_filter="h"/>
+<%! from openedx.core.djangolib.js_utils import js_escaped_string %>
+
+{% if INTERCOM_APP_ID -%}
+% if settings.INTERCOM_APP_ID:
+  % if user.is_authenticated():
+  <!-- begin Intercom Script -->
+  <script>
+  const __intercom_app_id__ = "{{ INTERCOM_APP_ID }}";
+
+  window.intercomSettings = {
+    //  The current logged in user's full name
+    name: "${ user.profile.name }",
+    //  The current logged in user's email address.
+    email: "${ user.email }",
+    //  The current logged in user's sign-up date as a Unix timestamp.
+    created_at: "${ user.date_joined.isoformat() }",
+    //  The current logged in user's username.
+    user_id: "${ user.username }",
+    //prod app id
+    app_id: __intercom_app_id__,
+  };
+
+  (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/' + __intercom_app_id__;var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
+
+  // window.addEventListener('load', (event) => {
+  //   // track an event for each view of a course page
+  //   var courseNum = $('#__course_number__').text();
+  //   if (courseNum.length > 0) {
+  //     if (typeof Intercom === 'function') {
+  //       Intercom('trackEvent', 'visited-gym-' + courseNum);
+  //     }
+  //   }
+  // })
+  </script>
+  <!-- end Intercom Script -->
+  % endif
+% endif
+{%- endif %}
