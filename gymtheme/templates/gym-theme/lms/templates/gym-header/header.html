@@ -63,7 +63,8 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
 
   % endif
   % if course and not disable_courseware_header:
-    <div class="course-header">
+    ## Course Header - this is effectively duplicated in MFEs via gym-frontend-components
+    <div id="course-header" class="course-header" data-course-id="${course.id}" data-course-num="${course.display_number_with_default | h}">
       <div class="container">
         <span class="pretty-course-id">${course.display_org_with_default}-${course.display_number_with_default}: </span> <span class="course-name">${course.display_name_with_default}</span>
       </div>
