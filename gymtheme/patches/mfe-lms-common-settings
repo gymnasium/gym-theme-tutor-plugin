@@ -1,9 +1,15 @@
 # via gym-theme mfe-lms-common-settings
 
+## TODO: try using MFE_CONFIG_OVERRIDES instead?
+# MFE_CONFIG_OVERRIDES = {}
+
 # These images are only applied to non-public facing/internal use MFEs (course authoring, communications, grading, ora-grading, etc)
 MFE_CONFIG["LOGO_URL"] = '{{ GYM_CMS_URL }}/static/studio/gym-theme/images/studio-logo.png'
 MFE_CONFIG["LOGO_TRADEMARK_URL"] = '{{ GYM_CMS_URL }}/static/studio/gym-theme/images/studio-logo.png'
 MFE_CONFIG["LOGO_WHITE_URL"] = '{{ GYM_CMS_URL }}/static/studio/gym-theme/images/studio-logo.png'
+
+MFE_CONFIG["INTERCOM_APP_ID"] = '{{ INTERCOM_APP_ID }}'
+MFE_CONFIG["ONETRUST_COOKIE_SCRIPT_ID"] = '{{ ONETRUST_COOKIE_SCRIPT_ID }}'
 
 MFE_CONFIG["ENABLE_IMAGE_LAYOUT"] = 'false'
 MFE_CONFIG["MARKETING_SITE_BASE_URL"] = '{{ GYM_BASE_URL }}'
