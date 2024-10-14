@@ -34,7 +34,7 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
 </ul>
 {%- endif -%}
 
-<ul class="auth" role="list">
+<ul class="auth logged-in" role="list">
   <li><a href="${reverse('dashboard')}"${' class="active"' if reverse('dashboard') == request.path else ''}>${_("Dashboard")}</a></li>
   <li><a href="${reverse('logout')}">${_("Log Out")}</a></li>
 </ul>
