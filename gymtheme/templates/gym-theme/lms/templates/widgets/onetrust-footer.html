@@ -1,0 +1,9 @@
+<%page expression_filter="h"/>
+<%! from openedx.core.djangolib.js_utils import js_escaped_string %>
+
+{% if ONETRUST_COOKIE_SCRIPT_ID -%}
+% if settings.ONETRUST_COOKIE_SCRIPT_ID:
+<script async src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="{{ ONETRUST_COOKIE_SCRIPT_ID }}"></script>
+<script type="text/javascript">function OptanonWrapper(){}</script>
+% endif
+{%- endif %}
