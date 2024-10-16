@@ -21,15 +21,11 @@ PIPELINE['STYLESHEETS'] = {
     'output_filename': 'css/lms-main-v1-rtl.css',
   },
   'style-course-vendor': {
-      'source_filenames': [
-        'css/nada.css',
-      ],
+      'source_filenames': [],
       'output_filename': 'css/lms-style-course-vendor.css',
   },
   'style-course': {
-      'source_filenames': [
-        'css/nada.css',
-      ],
+      'source_filenames': [],
       'output_filename': 'css/lms-course.css',
   },
   'style-course-rtl': {
