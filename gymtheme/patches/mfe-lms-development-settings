@@ -17,6 +17,3 @@ MFE_CONFIG["CONTACT_MAILING_ADDRESS"] = ""
 MFE_CONFIG["FAVICON_URL"] = '{{ GYM_BASE_URL }}/favicon.svg'
 MFE_CONFIG["SESSION_COOKIE_DOMAIN"] = '{{ GYM_BASE_DOMAIN }}'
 MFE_CONFIG["SHARED_COOKIE_DOMAIN"] = '{{ GYM_BASE_DOMAIN }}'
-{% if get_mfe("learning") %}
-MFE_CONFIG["LEARNING_MICROFRONTEND_URL"] = "http://{{ MFE_HOST }}:{{ get_mfe("learning")["port"] }}/learning"
-{% endif %}
