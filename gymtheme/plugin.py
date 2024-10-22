@@ -7,7 +7,8 @@ import html
 import importlib_resources
 import requests
 from tutor import hooks
-from tutor.__about__ import __version_suffix__
+from tutor.__about__ import __version_suffix__, __package_version__
+from tutor.types import Config, get_typed
 
 from .__about__ import __version__
 
@@ -38,7 +39,7 @@ config = {
         "CONFIG": data,
         "META": data['meta'],
         "BASE_DOMAIN": os.getenv("BASE_DOMAIN"),
-        "BASE_URL": os.getenv("MARKETING_SITE_BASE_URL"),
+        "ROOT_URL": os.getenv("MARKETING_SITE_BASE_URL"),
         "MFE_URL": data['urls']['mfe'],
         "LMS_URL": data['urls']['lms'],
         "CMS_URL": data['urls']['cms'],
@@ -65,23 +66,21 @@ config = {
     "unique": {},
     "overrides": {
         "BASE_DOMAIN": os.getenv("BASE_DOMAIN"),
-        "BASE_URL": os.getenv("MARKETING_SITE_BASE_URL"),
+        "CONTACT_EMAIL": "help@thegymnasium.com",
+        "DOCKER_IMAGE_OPENEDX": "gymnasium/gym-theme-openedx:{{ TUTOR_VERSION }}",
+        "DOCKER_IMAGE_OPENEDX_DEV": "gymnasium/gym-theme-openedx-dev:{{ TUTOR_VERSION }}",
+        "INFO_EMAIL": "help@thegymnasium.com",
+        "INTERCOM_APP_ID": os.getenv("INTERCOM_APP_ID"),
         "MARKETING_SITE_BASE_URL": os.getenv("MARKETING_SITE_BASE_URL"),
-        "PLATFORM_NAME": data['meta']['title'],
+        "MFE_DOCKER_IMAGE": "gymnasium/gym-theme-mfe:" + __version__,
+        "MFE_DOCKER_IMAGE_DEV_PREFIX": "gymnasium/gym-theme",
+        "ONETRUST_COOKIE_SCRIPT_ID": os.getenv("ONETRUST_COOKIE_SCRIPT_ID"),
         "PLATFORM_DESCRIPTION": data['meta']['description'],
+        "PLATFORM_NAME": data['meta']['title'],
+        "ROOT_URL": os.getenv("MARKETING_SITE_BASE_URL"),
         "SESSION_COOKIE_DOMAIN": os.getenv("BASE_DOMAIN"),
         "SHARED_COOKIE_DOMAIN": os.getenv("BASE_DOMAIN"),
         "SITE_NAME": data['meta']['title'],
-        "MFE_CONFIG": {
-            "BASE_DOMAIN": os.getenv("BASE_DOMAIN"),
-            "BASE_URL": os.getenv("MARKETING_SITE_BASE_URL"),
-            # "CSRF_COOKIE_DOMAIN": os.getenv("BASE_DOMAIN"),
-            "MARKETING_SITE_BASE_URL": os.getenv("MARKETING_SITE_BASE_URL"),
-            "SESSION_COOKIE_DOMAIN": os.getenv("BASE_DOMAIN"),
-            "SHARED_COOKIE_DOMAIN": os.getenv("BASE_DOMAIN"),
-        },
-        "INTERCOM_APP_ID": os.getenv("INTERCOM_APP_ID"),
-        "ONETRUST_COOKIE_SCRIPT_ID": os.getenv("ONETRUST_COOKIE_SCRIPT_ID"),
     },
 }
 
