@@ -24,7 +24,6 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
 from openedx.core.djangolib.js_utils import dump_js_escaped_json, js_escaped_string
 from openedx.core.release import RELEASE_LINE
 from common.djangoapps.pipeline_mako import render_require_js_path_overrides
-from django.conf import settings
 
 %>
 <!DOCTYPE html>
@@ -43,20 +42,20 @@ from django.conf import settings
 ## this needs to be here to prevent the title from mysteriously appearing in the body, in one case
 <%def name="pagetitle()" />
   <%block name="title">
-    <title>
-      ${static.get_page_title_breadcrumbs(self.pagetitle())}
-    </title>
+      <title>
+       ${static.get_page_title_breadcrumbs(self.pagetitle())}
+      </title>
   </%block>
 
   % if not allow_iframing:
-    <script type="text/javascript">
-      /* immediately break out of an iframe if coming from the marketing website */
-      (function(window) {
-        if (window.location !== window.top.location) {
-          window.top.location = window.location;
-        }
-      })(this);
-    </script>
+      <script type="text/javascript">
+        /* immediately break out of an iframe if coming from the marketing website */
+        (function(window) {
+          if (window.location !== window.top.location) {
+            window.top.location = window.location;
+          }
+        })(this);
+      </script>
   % endif
 
   <%
@@ -81,6 +80,10 @@ from django.conf import settings
     </script>
   % endif
   <script type="text/javascript" src="${static.url(jsi18n_path)}"></script>
+  % if settings.DEBUG:
+    ## Provides a fallback for gettext functions in development environment
+    <script type="text/javascript" src="${static.url('js/src/gettext_fallback.js')}"></script>
+  % endif
   <script type="text/javascript" src="${static.url(ie11_fix_path)}"></script>
   <% favicon_url = branding_api.get_favicon_url() %>
   <link rel="icon" type="image/x-icon" href="${favicon_url}"/>
@@ -94,7 +97,7 @@ from django.conf import settings
       <%
       rtl_css_file = self.attr.main_css.replace('.css', '-rtl.css')
       %>
-      <link rel="stylesheet" href="${six.text_type(static.url(rtl_css_file))}" type="text/css" media="all" />
+      <link rel="stylesheet" href="${str(static.url(rtl_css_file))}" type="text/css" media="all" />
     % else:
       <link rel="stylesheet" href="${static.url(self.attr.main_css)}" type="text/css" media="all" />
     % endif
@@ -189,13 +192,16 @@ from django.conf import settings
     <link rel="stylesheet" href="${css}" type="text/css">
   % endfor
   % endif
- 
 </head>
 
 <body class="gym-theme ${static.dir_rtl()} <%block name='bodyclass'/> lang_${LANGUAGE_CODE}">
 
 <%static:optional_include_mako file="body-initial.html" is_theming_enabled="True" />
-
+<div id="page-prompt"></div>
+<% disable_window_wrap = True %>
+% if not disable_window_wrap:
+  <div class="window-wrap" dir="${static.dir_rtl()}">
+% endif
     <%block name="skip_links"/>
     <a class="nav-skip sr-only sr-only-focusable" href="#main">${_("Skip to main content")}</a>
 
@@ -216,6 +222,10 @@ from django.conf import settings
     % if not disable_footer:
         <%include file="${static.get_template_path('footer.html')}" />
     % endif
+
+% if not disable_window_wrap:
+  </div>
+% endif
 
   <%block name="footer_extra"/>
   <%block name="js_extra"/>
