@@ -7,7 +7,7 @@ from django.utils.translation import gettext as _
 from openedx.core.djangolib.markup import HTML
 %>
 
-<%inherit file="/main.html" />
+<%inherit file="../main.html" />
 <%block name="bodyclass">view-in-course view-statictab ${course.css_class or ''}</%block>
 <%namespace name='static' file='/static_content.html'/>
 
