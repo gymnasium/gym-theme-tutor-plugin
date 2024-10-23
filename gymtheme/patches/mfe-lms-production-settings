@@ -1,19 +1,1 @@
 # via gym-theme mfe-lms-production-settings
-
-# These images are only applied to non-public facing/internal use MFEs (course authoring, communications, grading, ora-grading, etc)
-MFE_CONFIG["LOGO_URL"] = '{{ GYM_CMS_URL }}/static/studio/gym-theme/images/studio-logo.png'
-MFE_CONFIG["LOGO_TRADEMARK_URL"] = '{{ GYM_CMS_URL }}/static/studio/gym-theme/images/studio-logo.png'
-MFE_CONFIG["LOGO_WHITE_URL"] = '{{ GYM_CMS_URL }}/static/studio/gym-theme/images/studio-logo.png'
-
-MFE_CONFIG["ENABLE_IMAGE_LAYOUT"] = 'false'
-MFE_CONFIG["MARKETING_SITE_BASE_URL"] = '{{ GYM_ROOT_URL }}'
-MFE_CONFIG["LOGIN_URL"] = '{{ GYM_LMS_URL }}/login'
-MFE_CONFIG["LOGOUT_URL"] = '{{ GYM_LMS_URL }}/logout'
-MFE_CONFIG["SUPPORT_URL"] = '{{ GYM_ROOT_URL }}/support'
-MFE_CONFIG["INFO_EMAIL"] = '{{ CONTACT_EMAIL }}'
-MFE_CONFIG["PASSWORD_RESET_SUPPORT_LINK"] = 'mailto:{{ CONTACT_EMAIL }}'
-MFE_CONFIG["SITE_NAME"] = '{{ PLATFORM_NAME }}'
-MFE_CONFIG["CONTACT_MAILING_ADDRESS"] = ""
-MFE_CONFIG["FAVICON_URL"] = '{{ GYM_ROOT_URL }}/favicon.svg'
-MFE_CONFIG["SESSION_COOKIE_DOMAIN"] = '{{ GYM_BASE_DOMAIN }}'
-MFE_CONFIG["SHARED_COOKIE_DOMAIN"] = '{{ GYM_BASE_DOMAIN }}'
