@@ -1,6 +1,1 @@
 # via gym-theme caddyfile-lms
-# header * {
-#     Content-Security-Policy "
-#         connect-src 'self' {{ BASE_DOMAIN }} *.{{ BASE_DOMAIN }} {{ LMS_HOST }} *.{{ LMS_HOST }} {{ MARKETING_SITE_BASE_URL }};
-#     "
-# }
