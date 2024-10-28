@@ -80,7 +80,6 @@ config = {
         "ROOT_BASE": os.getenv("ROOT_BASE"),
         "ROOT_DOMAIN": os.getenv("ROOT_DOMAIN"),
         "ROOT_URL": os.getenv("ROOT_URL"),
-        "SEGMENT_API_KEY": os.getenv("SEGMENT_API_KEY"),
         "SITE_NAME": data['meta']['title'],
     },
 }
