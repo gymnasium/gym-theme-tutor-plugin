@@ -29,13 +29,12 @@ for domain_name in domain_names:
     assign_theme('gym-theme', domain_name)
 "
 
-# MFE-specific tasks
-./manage.py lms waffle_flag --list > /tmp/lms_waffle_flags.txt
-
 # Force enable `courseware.enable_navigation_sidebar`
 {% if is_mfe_enabled("learning") %}
-grep courseware.enable_navigation_sidebar /tmp/lms_waffle_flags.txt || ./manage.py lms waffle_flag --create --everyone courseware.enable_navigation_sidebar
+echo "DEBUG: enabling waffle flag: courseware.enable_navigation_sidebar"
+./manage.py lms waffle_flag --create --everyone courseware.enable_navigation_sidebar
+echo "DEBUG: enabling waffle flag: user_tours.tours_disabled"
+./manage.py lms waffle_flag --create --everyone user_tours.tours_disabled
 {% else %}
-./manage.py lms waffle_delete --flags \
-    courseware.enable_navigation_sidebar
+./manage.py lms waffle_delete --flags courseware.enable_navigation_sidebar
 {% endif %}
