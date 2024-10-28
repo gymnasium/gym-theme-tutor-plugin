@@ -30,8 +30,12 @@
   % endfor
 % endif
 
+{% if ONETRUST_COOKIE_SCRIPT_ID -%}
 ## Add onetrust footer
 <%include file="widgets/onetrust-footer.html" />
+{%- endif %}
 
+{% if INTERCOM_APP_ID -%}
 ## Add intercom footer
 <%include file="widgets/intercom-footer.html" />
+{%- endif %}
