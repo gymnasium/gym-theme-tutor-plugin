@@ -52,8 +52,14 @@ from openedx.core.djangolib.markup import HTML, Text
       % endif
     </div>
     <div class="submit-attempt-container">
-      <button type="button" class="submit btn btn-brand" data-submitting="${ submit_button_submitting }" data-value="${ submit_button }" data-should-enable-submit-button="${ should_enable_submit_button }" aria-describedby="submission_feedback_${short_id}" ${'' if should_enable_submit_button else 'disabled'}>
-          <span class="submit-label">${ submit_button }</span>
+      <button type="button" class="submit btn-brand"
+        data-submitting="${ submit_button_submitting }"
+        data-value="${ submit_button }"
+        data-should-enable-submit-button="${ should_enable_submit_button }"
+        aria-describedby="submission_feedback_${short_id}"
+        ${'' if should_enable_submit_button else 'disabled'}
+        onclick="notifySubmission()">
+        <span class="submit-label">${ submit_button }</span>
       </button>
 
       % if submit_disabled_cta:
@@ -166,4 +172,19 @@ from openedx.core.djangolib.markup import HTML, Text
     function emit_event(message) {
         parent.postMessage(message, '*');
     }
+</script>
+
+<script>
+  function emit_event(message) {
+      parent.postMessage(message, '*');
+  }
+
+  function notifySubmission() {
+      // Send message to parent window about submission
+      parent.postMessage({
+          type: 'problem_check',
+          action: 'submit',
+          problemId: '${ problem["name"] }'
+      }, '*');
+  }
 </script>
