@@ -22,7 +22,7 @@ from dotenv import load_dotenv
 
 load_dotenv(".env", override=True)
 
-endpoint = os.getenv("MARKETING_SITE_BASE_URL") + "/feeds/config.json"
+endpoint = os.getenv("ROOT_URL") + "/feeds/config.json"
 
 response = requests.get(endpoint)
 if response.status_code == 200:
