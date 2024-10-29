@@ -10,33 +10,10 @@ from django.conf import settings
 from django.urls import reverse
 from django.utils.translation import gettext as _
 
-from openedx.core.djangoapps.user_api.accounts.image_helpers import get_profile_image_urls_for_user
-from openedx.core.djangoapps.user_api.accounts.toggles import should_redirect_to_order_history_microfrontend
-from openedx.features.enterprise_support.utils import get_enterprise_learner_generic_name, get_enterprise_learner_portal
 %>
-% if user.is_authenticated:
-<%
-## This template should not use the target student's details when masquerading, see TNL-4895
-self.real_user = getattr(user, 'real_user', user)
-profile_image_url = get_profile_image_urls_for_user(self.real_user)['medium']
-username = self.real_user.username
-displayname = get_enterprise_learner_generic_name(request) or username
-enterprise_customer_portal = get_enterprise_learner_portal(request)
-## Enterprises with the learner portal enabled should not show order history, as it does
-## not apply to the learner's method of purchasing content.
-should_show_order_history = should_redirect_to_order_history_microfrontend() and not enterprise_customer_portal
-%>
-% endif
 
 <div class="container">
   <nav class="secondary" role="navigation" aria-label="Secondary">
-    % if user.is_authenticated:
-    <a class="hide" href="${reverse('dashboard')}">
-      <img data-hj-suppress class="user-image-frame" src="${profile_image_url}" alt="">
-      <span class="sr-only">${_("Dashboard for:")}</span>
-      <span data-hj-suppress class="username">${displayname}</span>
-    </a>
-    % endif
     <ul>
       % if secondary_nav == "courses": 
         {% for link in GYM_CONFIG['header']['nav']['courses'] %}
