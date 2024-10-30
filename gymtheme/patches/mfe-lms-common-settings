@@ -31,3 +31,6 @@ MFE_CONFIG["ENABLE_DOB_UPDATE"] = 'false'
 MFE_CONFIG["ENABLE_DYNAMIC_REGISTRATION_FIELDS"] = 'true'
 MFE_CONFIG["ENABLE_IMAGE_LAYOUT"] = 'false'
 MFE_CONFIG["ENABLE_PROGRESSIVE_PROFILING_ON_AUTHN"] = 'true'
+
+# Gymnasium-specific custom config (https://github.com/gymnasium/tracker/issues/557)
+MFE_CONFIG["ENABLE_ALTERNATE_ENROLLMENT_ALERT"] = 'false'
