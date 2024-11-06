@@ -169,12 +169,6 @@ from openedx.core.djangolib.markup import HTML, Text
 </div>
 
 <script>
-    function emit_event(message) {
-        parent.postMessage(message, '*');
-    }
-</script>
-
-<script>
   function emit_event(message) {
       parent.postMessage(message, '*');
   }
@@ -184,7 +178,9 @@ from openedx.core.djangolib.markup import HTML, Text
       parent.postMessage({
           type: 'problem_check',
           action: 'submit',
-          problemId: '${ problem["name"] }'
+          problemId: '${ problem["name"] }',
+          attempts_used: '${ attempts_used }',
+          should_enable_submit_button: '${ should_enable_submit_button }'
       }, '*');
   }
 </script>
