@@ -32,12 +32,18 @@ for domain_name in domain_names:
 # Force enable `courseware.enable_navigation_sidebar`
 {% if is_mfe_enabled("learning") %}
 echo "DEBUG: enabling waffle flag: courseware.enable_navigation_sidebar"
-(./manage.py lms waffle_flag --list | grep courseware.enable_navigation_sidebar) || ./manage.py lms waffle_flag --create --everyone courseware.enable_navigation_sidebar 
+(./manage.py lms waffle_flag --list | grep courseware.enable_navigation_sidebar) || ./manage.py lms waffle_flag --create --everyone courseware.enable_navigation_sidebar
 
 echo "DEBUG: enabling waffle flag: user_tours.tours_disabled"
-(./manage.py lms waffle_flag --list | grep user_tours.tours_disabled) || ./manage.py lms waffle_flag --create --everyone user_tours.tours_disabled 
+(./manage.py lms waffle_flag --list | grep user_tours.tours_disabled) || ./manage.py lms waffle_flag --create --everyone user_tours.tours_disabled
+
+
+echo "DEBUG: enabling waffle flag: effort_estimation.disabled"
+(./manage.py lms waffle_flag --list | grep effort_estimation.disabled) || ./manage.py lms waffle_flag --create --everyone effort_estimation.disabled 
 {% else %}
 ./manage.py lms waffle_delete --flags courseware.enable_navigation_sidebar
+./manage.py lms waffle_delete --flags user_tours.tours_disabled
+./manage.py lms waffle_delete --flags effort_estimation.disabled
 {% endif %}
 
 echo "DEBUG: enabling waffle switch: certificates.auto_certificate_generation"
