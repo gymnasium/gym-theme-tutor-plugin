@@ -180,7 +180,9 @@ from openedx.core.djangolib.markup import HTML, Text
           action: 'submit',
           problemId: '${ problem["name"] }',
           attempts_used: '${ attempts_used }',
-          should_enable_submit_button: '${ should_enable_submit_button }'
+          should_enable_submit_button: '${ should_enable_submit_button }',
+          answer_notification_type: '${ answer_notification_type }',
+          answer_notification_message: '${ answer_notification_message }'
       }, '*');
   }
 </script>
