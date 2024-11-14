@@ -58,7 +58,7 @@ from openedx.core.djangolib.markup import HTML, Text
         data-should-enable-submit-button="${ should_enable_submit_button }"
         aria-describedby="submission_feedback_${short_id}"
         ${'' if should_enable_submit_button else 'disabled'}
-        onclick="notifySubmission()">
+        >
         <span class="submit-label">${ submit_button }</span>
       </button>
 
@@ -173,8 +173,10 @@ from openedx.core.djangolib.markup import HTML, Text
       parent.postMessage(message, '*');
   }
 
-  function notifySubmission() {
-      // Send message to parent window about submission
+  // Remove the onclick from the button and listen for the submit event
+  $('.submit').on('click', function() {
+    // Let edX handle the submission first
+    setTimeout(() => {
       parent.postMessage({
           type: 'problem_check',
           action: 'submit',
@@ -184,5 +186,6 @@ from openedx.core.djangolib.markup import HTML, Text
           answer_notification_type: '${ answer_notification_type }',
           answer_notification_message: '${ answer_notification_message }'
       }, '*');
-  }
+    }, 1000);  // Give enough time for the submission to process
+  });
 </script>
