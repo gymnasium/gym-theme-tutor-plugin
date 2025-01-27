@@ -22,7 +22,7 @@ from dotenv import load_dotenv
 
 load_dotenv(".env", override=True)
 
-endpoint = os.getenv("ROOT_URL") + "/feeds/config.json"
+endpoint = os.getenv("API_URL") + "/api/config.json"
 
 response = requests.get(endpoint)
 if response.status_code == 200:
@@ -38,6 +38,7 @@ config = {
         "VERSION": __version__,
         "CONFIG": data,
         "META": data['meta'],
+        "API_URL": os.getenv("API_URL"),
         "ROOT_BASE": os.getenv("ROOT_BASE"),
         "ROOT_DOMAIN": os.getenv("ROOT_DOMAIN"),
         "ROOT_URL": os.getenv("ROOT_URL"),
