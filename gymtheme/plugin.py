@@ -67,6 +67,7 @@ config = {
     },
     "unique": {},
     "overrides": {
+        "API_URL": os.getenv("API_URL"),
         "CONTACT_EMAIL": "help@thegymnasium.com",
         "DOCKER_IMAGE_OPENEDX": "gymnasium/gym-theme-openedx:{{ TUTOR_VERSION }}",
         "DOCKER_IMAGE_OPENEDX_DEV": "gymnasium/gym-theme-openedx-dev:{{ TUTOR_VERSION }}",
