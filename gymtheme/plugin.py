@@ -39,6 +39,7 @@ config = {
         "CONFIG": data,
         "META": data['meta'],
         "API_URL": os.getenv("API_URL"),
+        "STATIC_ASSETS_URL": os.getenv("STATIC_ASSETS_URL"),
         "ROOT_BASE": os.getenv("ROOT_BASE"),
         "ROOT_DOMAIN": os.getenv("ROOT_DOMAIN"),
         "ROOT_URL": os.getenv("ROOT_URL"),
@@ -68,6 +69,7 @@ config = {
     "unique": {},
     "overrides": {
         "API_URL": os.getenv("API_URL"),
+        "STATIC_ASSETS_URL": os.getenv("STATIC_ASSETS_URL"),
         "CONTACT_EMAIL": "help@thegymnasium.com",
         "DOCKER_IMAGE_OPENEDX": "gymnasium/gym-theme-openedx:{{ TUTOR_VERSION }}",
         "DOCKER_IMAGE_OPENEDX_DEV": "gymnasium/gym-theme-openedx-dev:{{ TUTOR_VERSION }}",
