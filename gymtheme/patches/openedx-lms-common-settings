@@ -121,13 +121,13 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "common.djangoapps.util.password_policy_validators.MinimumLengthValidator",
         "OPTIONS": {
-            "min_length": 8
+            "min_length": 12
         }
     },
     {
         "NAME": "common.djangoapps.util.password_policy_validators.MaximumLengthValidator",
         "OPTIONS": {
-            "max_length": 75
+            "max_length": 128
         }
     },
     {
@@ -160,5 +160,4 @@ AUTH_PASSWORD_VALIDATORS = [
             "min_symbol": 1
         }
     },
-
 ]
