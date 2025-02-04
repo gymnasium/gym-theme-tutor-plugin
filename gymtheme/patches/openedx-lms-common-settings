@@ -113,3 +113,40 @@ SOCIAL_MEDIA_FOOTER_NAMES = []
 SOCIAL_MEDIA_LOGO_URLS = {}
 SOCIAL_PLATFORMS = {}
 WIKI_ENABLED = False
+# Password policy
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+    },
+    {
+        "NAME": "common.djangoapps.util.password_policy_validators.MinimumLengthValidator",
+        "OPTIONS": {
+            "min_length": 8
+        }
+    },
+    {
+        "NAME": "common.djangoapps.util.password_policy_validators.MaximumLengthValidator",
+        "OPTIONS": {
+            "max_length": 75
+        }
+    },
+    {
+        "NAME": "common.djangoapps.util.password_policy_validators.AlphabeticValidator",
+        "OPTIONS": {
+            "min_alphabetic": 1
+        }
+    },
+    {
+        "NAME": "common.djangoapps.util.password_policy_validators.NumericValidator",
+        "OPTIONS": {
+            "min_numeric": 1
+        }
+    },
+    {
+        "NAME": "common.djangoapps.util.password_policy_validators.UppercaseValidator",
+        "OPTIONS": {
+            "min_upper": 1
+        }
+    },
+    
+]
