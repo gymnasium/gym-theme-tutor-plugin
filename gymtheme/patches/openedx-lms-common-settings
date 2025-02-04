@@ -148,5 +148,17 @@ AUTH_PASSWORD_VALIDATORS = [
             "min_upper": 1
         }
     },
-    
+    {
+        "NAME": "common.djangoapps.util.password_policy_validators.LowercaseValidator",
+        "OPTIONS": {
+            "min_lower": 1
+        }
+    },
+    {
+        "NAME": "common.djangoapps.util.password_policy_validators.SymbolValidator",
+        "OPTIONS": {
+            "min_symbol": 1
+        }
+    },
+
 ]
