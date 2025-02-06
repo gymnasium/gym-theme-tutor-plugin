@@ -75,7 +75,7 @@ config = {
         "DOCKER_IMAGE_OPENEDX_DEV": "gymnasium/gym-theme-openedx-dev:{{ TUTOR_VERSION }}",
         "INFO_EMAIL": "help@thegymnasium.com",
         "INTERCOM_APP_ID": os.getenv("INTERCOM_APP_ID"),
-        "MARKETING_SITE_BASE_URL": os.getenv("ROOT_URL"),
+        "MARKETING_SITE_BASE_URL": os.getenv("MARKETING_SITE_BASE_URL"),
         "MFE_DOCKER_IMAGE": "gymnasium/gym-theme-mfe:" + __version__,
         "MFE_DOCKER_IMAGE_DEV_PREFIX": "gymnasium/gym-theme",
         "ONETRUST_COOKIE_SCRIPT_ID": os.getenv("ONETRUST_COOKIE_SCRIPT_ID"),
